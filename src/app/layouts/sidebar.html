@@ -3,7 +3,7 @@
         <div class="h-full bg-white dark:bg-[#0e1726]">
             <div class="flex items-center justify-between px-4 py-3">
                 <a routerLink="/" class="main-logo flex shrink-0 items-center">
-                    <img class="ml-[5px] w-8 flex-none" src="/assets/images/logo.svg" alt="" />
+                    <img class="ml-[5px] w-10 flex-none" src="assets/images/global-fleet-image/favicon-logo.png" alt="fleetlight" />
                     <span class="align-middle text-2xl font-semibold dark:text-white-light lg:inline ltr:ml-1.5 rtl:mr-1.5">Fleetlight</span>
                 </a>
                 <a
@@ -188,13 +188,21 @@
                                 <div [@slideDownUp]="!activeDropdown.includes('invoice')" class="accordion-content">
                                     <ul class="sub-menu text-gray-500">
                                         <li>
-                                            <a routerLink="/view-equpiment" routerLinkActive="active" (click)="toggleMobileMenu()">
+                                            <!-- <a routerLink="/view-equpiment" routerLinkActive="active" (click)="toggleMobileMenu()">
+                                                {{ 'عرض المعدات' | translate }}
+                                            </a> -->
+
+                                            <a routerLink="/pages/coming-soon-boxed" routerLinkActive="active" (click)="toggleMobileMenu()">
                                                 {{ 'عرض المعدات' | translate }}
                                             </a>
 
                                         </li>
                                         <li>
-                                            <a routerLink="/add-equpiment" routerLinkActive="active" (click)="toggleMobileMenu()"
+                                            <!-- <a routerLink="/add-equpiment" routerLinkActive="active" (click)="toggleMobileMenu()"
+                                                >{{ 'إضافة المعدة' | translate }}</a
+                                            > -->
+
+                                             <a routerLink="/pages/coming-soon-boxed" routerLinkActive="active" (click)="toggleMobileMenu()"
                                                 >{{ 'إضافة المعدة' | translate }}</a
                                             >
                                         </li>
