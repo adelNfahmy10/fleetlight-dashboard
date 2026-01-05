@@ -11,7 +11,6 @@ export const routes: Routes = [
         path: '',
         component: AuthLayout,
         children: [
-
             // auth
             { path: '', redirectTo:'auth', pathMatch:'full'},
 
@@ -78,8 +77,6 @@ export const routes: Routes = [
             { path: 'datatables', loadChildren: () => import('./datatables/datatables.routes').then((d) => d.DATATABLES_ROUTES) },
         ],
     },
-
-
 
     { path: '', loadComponent: () => import('./not-found').then((d) => d.NotFoundComponent) },
 ];

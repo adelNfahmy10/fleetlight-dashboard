@@ -46,4 +46,5 @@ export const AUTH_ROUTES: Routes = [
         loadComponent: () => import('./cover-register').then((d) => d.CoverRegisterComponent),
         data: { title: 'Cover Register' },
     },
+    { path: '**', redirectTo: 'boxed-signin', pathMatch: 'full' }
 ];
