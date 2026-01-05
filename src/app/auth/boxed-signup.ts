@@ -122,7 +122,7 @@ export class BoxedSignupComponent implements OnInit{
                 this.router.navigate(['/auth/boxed-signin'])
             },
             error: (err:any) => {
-                this._ToastrService.success(err.error.msg)
+                // this._ToastrService.success(err.error.msg)
             }
         })
     }
