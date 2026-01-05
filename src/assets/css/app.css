@@ -10,3 +10,4 @@
 @import 'nouislider/dist/nouislider.min.css';
 @import 'sweetalert2/themes/minimal.css';
 @import 'tailwind.css';
+@import 'ngx-toastr/toastr';

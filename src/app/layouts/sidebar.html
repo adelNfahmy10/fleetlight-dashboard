@@ -38,10 +38,10 @@
                             <ul class="sub-menu text-gray-500">
                                 <li>
                                     <a routerLink="/index" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()"
-                                        >{{ 'sales' | translate }}</a
+                                        >{{ 'لوحة القيادة' | translate }}</a
                                     >
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a routerLink="/analytics" routerLinkActive="active" (click)="toggleMobileMenu()">{{ 'analytics' | translate }}</a>
                                 </li>
                                 <li>
@@ -49,7 +49,7 @@
                                 </li>
                                 <li>
                                     <a routerLink="/crypto" routerLinkActive="active" (click)="toggleMobileMenu()">{{ 'crypto' | translate }}</a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </li>
@@ -61,7 +61,7 @@
 
                     <li class="nav-item">
                         <ul>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a routerLink="/apps/chat" class="group" routerLinkActive="active" (click)="toggleMobileMenu()">
                                     <div class="flex items-center">
                                         <icon-menu-chat class="shrink-0 group-hover:!text-primary" />
@@ -126,9 +126,9 @@
                                         >
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
 
-                            <li class="accordion menu nav-item">
+                            <!-- <li class="accordion menu nav-item">
                                 <button
                                     type="button"
                                     class="nav-link group w-full"
@@ -138,9 +138,9 @@
                                     <div class="flex items-center">
                                         <icon-menu-invoice class="shrink-0 group-hover:!text-primary" />
 
-                                        <span class="text-black dark:text-[#506690] dark:group-hover:text-white-dark ltr:pl-3 rtl:pr-3"
-                                            >{{ 'invoice' | translate }}</span
-                                        >
+                                        <span class="text-black dark:text-[#506690] dark:group-hover:text-white-dark ltr:pl-3 rtl:pr-3">
+                                            {{ 'invoice' | translate }}
+                                        </span>
                                     </div>
                                     <div [ngClass]="{ 'rtl:rotate-90 -rotate-90': !activeDropdown.includes('invoice') }">
                                         <icon-caret-down />
@@ -149,15 +149,12 @@
                                 <div [@slideDownUp]="!activeDropdown.includes('invoice')" class="accordion-content">
                                     <ul class="sub-menu text-gray-500">
                                         <li>
-                                            <a routerLink="/apps/invoice/list" routerLinkActive="active" (click)="toggleMobileMenu()"
-                                                >{{ 'list' | translate }}</a
-                                            >
+                                            <a routerLink="/apps/invoice/list" routerLinkActive="active" (click)="toggleMobileMenu()">{{ 'list' | translate }}</a>
                                         </li>
                                         <li>
                                             <a routerLink="/apps/invoice/preview" routerLinkActive="active" (click)="toggleMobileMenu()"
                                                 >{{ 'preview' | translate }}</a
                                             >
-                                        </li>
                                         <li>
                                             <a routerLink="/apps/invoice/add" routerLinkActive="active" (click)="toggleMobileMenu()">{{ 'add' | translate }}</a>
                                         </li>
@@ -168,9 +165,56 @@
                                         </li>
                                     </ul>
                                 </div>
+                            </li> -->
+
+                            <li class="accordion menu nav-item">
+                                <button
+                                    type="button"
+                                    class="nav-link group w-full"
+                                    [ngClass]="{ active: activeDropdown.includes('invoice') }"
+                                    (click)="toggleAccordion('invoice')"
+                                >
+                                    <div class="flex items-center">
+                                        <i class="fa-solid fa-screwdriver-wrench shrink-0 group-hover:!text-primary transition"></i>
+
+                                        <span class="text-black group-hover:!text-primary transition dark:text-[#506690] dark:group-hover:text-white-dark ltr:pl-3 rtl:pr-3">
+                                            {{ 'معداتي' | translate }}
+                                        </span>
+                                    </div>
+                                    <div [ngClass]="{ 'rtl:rotate-90 -rotate-90': !activeDropdown.includes('invoice') }">
+                                        <icon-caret-down />
+                                    </div>
+                                </button>
+                                <div [@slideDownUp]="!activeDropdown.includes('invoice')" class="accordion-content">
+                                    <ul class="sub-menu text-gray-500">
+                                        <li>
+                                            <a routerLink="/view-equpiment" routerLinkActive="active" (click)="toggleMobileMenu()">
+                                                {{ 'عرض المعدات' | translate }}
+                                            </a>
+
+                                        </li>
+                                        <li>
+                                            <a routerLink="/add-equpiment" routerLinkActive="active" (click)="toggleMobileMenu()"
+                                                >{{ 'إضافة المعدة' | translate }}</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
 
                             <li class="nav-item">
+                                <a routerLink="/auth/boxed-signin" class="group" routerLinkActive="active" (click)="toggleMobileMenu()">
+                                    <div class="flex items-center">
+                                        <icon-logout class="h-4.5 w-4.5 shrink-0 group-hover:!text-danger rotate-90 ltr:mr-2 rtl:ml-2 transition" />
+                                        <span class="text-black transition group-hover:!text-danger dark:text-[#506690] dark:group-hover:text-white-dark ltr:pl-3 rtl:pr-3">
+                                            {{ 'تسجيل الخروج' | translate }}
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <!-- <li class="nav-item">
                                 <a routerLink="/apps/calendar" class="group" routerLinkActive="active" (click)="toggleMobileMenu()">
                                     <div class="flex items-center">
                                         <icon-menu-calendar class="shrink-0 group-hover:!text-primary" />
@@ -180,11 +224,13 @@
                                         >
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
+
+
                         </ul>
                     </li>
 
-                    <h2 class="-mx-4 mb-1 flex items-center bg-white-light/30 px-7 py-3 font-extrabold uppercase dark:bg-dark dark:bg-opacity-[0.08]">
+                    <!-- <h2 class="-mx-4 mb-1 flex items-center bg-white-light/30 px-7 py-3 font-extrabold uppercase dark:bg-dark dark:bg-opacity-[0.08]">
                         <icon-minus class="hidden h-5 w-4 flex-none" />
                         <span>{{ ('user_interface' | translate) || '&nbsp;' }}</span>
                     </h2>
@@ -748,7 +794,7 @@
                                 >
                             </div>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </ng-scrollbar>
         </div>

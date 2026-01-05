@@ -27,6 +27,10 @@ export const routes: Routes = [
         path: '',
         component: AppLayout,
         children: [
+            { path: 'add-equpiment', loadComponent: () => import('./components/equipments/add-equipment/add-equipment').then((d) => d.AddEquipment), data: { title: 'Add Equipment' } },
+            { path: 'view-equpiment', loadComponent: () => import('./components/equipments/view-equpiments/view-equpiments').then((d) => d.ViewEqupiments), data: { title: 'Add Equipment' } },
+
+
             // dashboard
             { path: '', redirectTo: 'index', pathMatch:'full'},
             { path: 'index', loadComponent: () => import('./index').then((d) => d.IndexComponent), data: { title: 'Sales Admin' } },

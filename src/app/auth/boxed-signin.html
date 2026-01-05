@@ -65,11 +65,11 @@
                         <h1 class="text-3xl font-extrabold uppercase !leading-snug text-primary md:text-4xl">{{'Login.SignIn' | translate}}</h1>
                         <p class="text-base font-bold leading-normal text-white-dark">{{'Login.SignInTitle' | translate}}</p>
                     </div>
-                    <form class="space-y-5 dark:text-white" (submit)="submitLoginForm()">
+                    <form class="space-y-5 dark:text-white" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
                         <div>
                             <label for="Email">{{'Login.EmailLable' | translate}}</label>
                             <div class="relative text-white-dark">
-                                <input id="Email" type="email" [placeholder]="'Login.EmailPlaceholder' | translate" class="form-input ps-10 placeholder:text-white-dark" />
+                                <input formControlName="username" id="Email" type="email" [placeholder]="'Login.EmailPlaceholder' | translate" class="form-input ps-10 placeholder:text-white-dark" />
                                 <span class="absolute start-4 top-1/2 -translate-y-1/2">
                                     <icon-mail [fill]="true" />
                                 </span>
@@ -78,7 +78,7 @@
                         <div>
                             <label for="Password">{{'Login.PasswordLabel' | translate}}</label>
                             <div class="relative text-white-dark">
-                                <input id="Password" type="password" [placeholder]="'Login.PasswordPlaceholder' | translate" class="form-input ps-10 placeholder:text-white-dark" />
+                                <input formControlName="password" id="Password" type="password" [placeholder]="'Login.PasswordPlaceholder' | translate" class="form-input ps-10 placeholder:text-white-dark" />
                                 <span class="absolute start-4 top-1/2 -translate-y-1/2">
                                     <icon-lock-dots [fill]="true" />
                                 </span>
@@ -90,7 +90,13 @@
                                 <span class="text-white-dark">Subscribe to weekly newsletter</span>
                             </label>
                         </div> -->
-                        <button type="submit" class="btn btn-gradient !mt-6 w-full border-0 uppercase shadow-[0_10px_20px_-10px_rgba(67,97,238,0.44)]" (click)="submitLoginForm()">
+
+                         <div>
+                            <label class="flex cursor-pointer items-center">
+                                <span class="text-white-dark hover:text-primary">{{'هل نسيت كلمة المرور ؟' | translate}}</span>
+                            </label>
+                        </div>
+                        <button class="btn btn-gradient !mt-6 w-full border-0 uppercase shadow-[0_10px_20px_-10px_rgba(67,97,238,0.44)]">
                             {{'Login.SignIn' | translate }}
                         </button>
                     </form>

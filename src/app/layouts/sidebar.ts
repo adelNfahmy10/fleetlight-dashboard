@@ -30,41 +30,23 @@ import { IconMenuUsersComponent } from '../shared/icon/menu/icon-menu-users';
 import { IconMenuPagesComponent } from '../shared/icon/menu/icon-menu-pages';
 import { IconMenuAuthenticationComponent } from '../shared/icon/menu/icon-menu-authentication';
 import { IconMenuDocumentationComponent } from '../shared/icon/menu/icon-menu-documentation';
+import { IconLogoutComponent } from "../shared/icon/icon-logout";
 
 @Component({
     selector: 'sidebar',
     templateUrl: './sidebar.html',
     imports: [
-        NgClass,
-        TranslatePipe,
-        NgScrollbarModule,
-        RouterModule,
-        IconCaretsDownComponent,
-        IconMenuDashboardComponent,
-        IconCaretDownComponent,
-        IconMinusComponent,
-        IconMenuChatComponent,
-        IconMenuMailboxComponent,
-        IconMenuTodoComponent,
-        IconMenuNotesComponent,
-        IconMenuScrumboardComponent,
-        IconMenuContactsComponent,
-        IconMenuInvoiceComponent,
-        IconMenuCalendarComponent,
-        IconMenuComponentsComponent,
-        IconMenuElementsComponent,
-        IconMenuChartsComponent,
-        IconMenuWidgetsComponent,
-        IconMenuFontIconsComponent,
-        IconMenuDragAndDropComponent,
-        IconMenuTablesComponent,
-        IconMenuDatatablesComponent,
-        IconMenuFormsComponent,
-        IconMenuUsersComponent,
-        IconMenuPagesComponent,
-        IconMenuAuthenticationComponent,
-        IconMenuDocumentationComponent,
-    ],
+    NgClass,
+    TranslatePipe,
+    NgScrollbarModule,
+    RouterModule,
+    IconCaretsDownComponent,
+    IconMenuDashboardComponent,
+    IconCaretDownComponent,
+    IconMinusComponent,
+    IconLogoutComponent,
+    IconMenuInvoiceComponent
+],
     animations: [slideDownUp],
 })
 export class SidebarComponent {

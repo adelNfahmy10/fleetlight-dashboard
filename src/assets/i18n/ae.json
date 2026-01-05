@@ -2,13 +2,43 @@
     "Login":{
         "SignIn": "تسجـيل الدخـــول",
         "SignInTitle":"أدخل البريد الإلكتروني و كلمة المرور للتسجيل الدخول",
+
         "EmailLable":"البريد الإلكتروني",
-        "PasswordLabel":"كلمة المرور",
         "EmailPlaceholder":"أدخل البريد الإلكتروني",
+
+        "PasswordLabel":"كلمة المرور",
         "PasswordPlaceholder":"أدخل كلمة المرور",
+
         "HavntAcc":"ليس لديك حساب ؟",
         "SignUp":"سجل الآن"
     },
+
+    "SignUp":{
+        "SignUp": "تسجيل حساب جديد",
+        "SignUpTitle":"أنشئ حسابك اليوم وابدأ في إدارة خدماتك والاستفادة من جميع الإمكانيات المتوفرة.",
+
+        "FullNameLable":"الأســـم",
+        "FullNamePlaceholder":"أدخل الأسم بالكامل",
+
+        "EmailLable":"البريد الإلكتروني",
+        "EmailPlaceholder":"أدخل البريد الإلكتروني",
+
+        "PhoneLabel":"التليفون",
+        "PhonePlaceholder":"أدخل رقم التليفون",
+
+        "RoleLabel":"الصلاحية",
+        "RolePlaceholder":"أدخل الصلاحية",
+
+        "UserNameLabel":"إسم السمتخدم",
+        "UserNamePlaceholder":"أدخل إسم المستخدم",
+
+        "PasswordLabel":"كلمة المرور",
+        "PasswordPlaceholder":"أدخل كلمة المرور",
+
+        "HaveAcc" : "هل لديك حساب بالفعل؟",
+        "SignIn":"تسجيل الدخول"
+    },
+
 
 
 

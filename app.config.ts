@@ -40,6 +40,8 @@ import { provideScrollbarOptions } from 'ngx-scrollbar';
 // highlightjs
 import { provideHighlightOptions } from 'ngx-highlightjs';
 
+import { provideToastr } from 'ngx-toastr';
+
 export const appConfig: ApplicationConfig = {
     providers: [
         Title,
@@ -78,5 +80,6 @@ export const appConfig: ApplicationConfig = {
         }),
         provideAnimations(),
         provideStore({ index: indexReducer }),
+        provideToastr(),
     ],
 };
