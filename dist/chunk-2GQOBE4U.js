@@ -1,0 +1,1 @@
+import"./chunk-GAL4ENT6.js";var o=[{path:"user-account-settings",loadComponent:()=>import("./chunk-OHYKTAC6.js").then(t=>t.UserAccountSettingsComponent),data:{title:"Account Setting"}},{path:"profile",loadComponent:()=>import("./chunk-3LH5UGLS.js").then(t=>t.ProfileComponent),data:{title:"User Profile"}}];export{o as USERS_ROUTES};

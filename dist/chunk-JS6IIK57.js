@@ -1,0 +1,1 @@
+import{Sb as n,Tb as s,oc as p,tb as i}from"./chunk-DCDCP4BO.js";import"./chunk-GAL4ENT6.js";var m=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=i({type:t,selectors:[["app-view-equpiments"]],decls:2,vars:0,template:function(e,a){e&1&&(n(0,"p"),p(1,"view-equpiments works!"),s())},encapsulation:2})};export{m as ViewEqupiments};
