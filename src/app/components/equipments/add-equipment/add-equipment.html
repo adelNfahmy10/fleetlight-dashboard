@@ -1,43 +1,67 @@
 <section class="add-equipment">
     <div class="panel p-10">
         <div class="head-section">
-            <h2 class="font-bold">{{'إضافة معدة جديدة' | translate }}</h2>
+            @if(equipmentId){
+                <h2 class="font-bold">{{'تعديل المعدة' | translate }}</h2>
+            } @else {
+                <h2 class="font-bold">{{'إضافة معدة جديدة' | translate }}</h2>
+            }
         </div>
 
-        <form class="grid grid-cols-12 md:grid-cols-6 gap-3" [formGroup]="equpimentsForm" (ngSubmit)="submitEqupimentsForm()" >
+        <form class="grid grid-cols-12 gap-3" [formGroup]="equpimentsForm" >
 
             <!-- الصف الأول -->
-            <div class="equipment-brand col-span-12 md:col-span-2">
-                <label class="text-[16px]">{{ 'العلامة التجارية' | translate }}</label>
-                <input formControlName="brand" class="form-input" type="text" placeholder="العلامة التجارية" />
+            <div class="equipment-brand col-span-6">
+                <label class="text-[16px]">{{ 'العلامة التجارية بالعربية' | translate }}</label>
+                <input formControlName="brandAr" class="form-input" type="text" placeholder="العلامة التجارية" />
             </div>
 
-            <div class="equipment-yearOfManufacture col-span-12 md:col-span-2">
+             <div class="equipment-brand col-span-6">
+                <label class="text-[16px]">{{ 'العلامة التجارية بالإنجليزية' | translate }}</label>
+                <input formControlName="brandEn" class="form-input" type="text" placeholder="العلامة التجارية" />
+            </div>
+
+            <div class="equipment-model col-span-6">
+                <label class="text-[16px]">{{ 'الطراز بالعربية' | translate }}</label>
+                <input formControlName="modelAr" class="form-input" type="text" placeholder="الطراز" />
+            </div>
+
+            <div class="equipment-model col-span-6">
+                <label class="text-[16px]">{{ 'الطراز بالإنجليزية' | translate }}</label>
+                <input formControlName="modelEn" class="form-input" type="text" placeholder="الطراز" />
+            </div>
+
+
+            <!-- الصف الثاني -->
+            <div class="equipment-yearOfManufacture col-span-4">
                 <label class="text-[16px]">{{ 'سنة الصنع' | translate }}</label>
                 <input formControlName="yearOfManufacture" class="form-input" type="text" placeholder="سنة الصنع" />
             </div>
 
-            <div class="equipment-model col-span-12 md:col-span-2">
-                <label class="text-[16px]">{{ 'الطراز' | translate }}</label>
-                <input formControlName="model" class="form-input" type="text" placeholder="الطراز" />
-            </div>
-
-            <!-- الصف الثاني -->
-            <div class="equipment-chassisNumber col-span-12 md:col-span-3">
+            <div class="equipment-chassisNumber col-span-4">
                 <label class="text-[16px]">{{ 'رقم الشاسية' | translate }}</label>
                 <input formControlName="chassisNumber" class="form-input" type="text" placeholder="رقم الشاسية" />
             </div>
 
-            <div class="equipment-assetNumber col-span-12 md:col-span-3">
+            <div class="equipment-assetNumber col-span-4">
                 <label class="text-[16px]">{{ 'رقم الأصل' | translate }}</label>
                 <input formControlName="assetNumber" class="form-input" type="text" placeholder="رقم الأصل" />
             </div>
 
             <!-- الزر -->
-            <div class="btn-submit col-span-12 md:col-span-6 flex justify-center mt-3">
-                <button class="btn btn-primary" type="submit">
-                {{ 'إضافة المعدة' | translate }}
-                </button>
+            <div class="btn-submit col-span-12 flex justify-center mt-3">
+
+
+                @if(equipmentId){
+                    <button class="btn btn-success" type="button" (click)="updateEquipment()">
+                        {{ 'تعديل المعدة' | translate }}
+                    </button>
+                } @else {
+                    <button class="btn btn-primary" type="button" (click)="submitEqupimentsForm()">
+                        {{ 'إضافة المعدة' | translate }}
+                    </button>
+                }
+
             </div>
 
         </form>

@@ -14,7 +14,7 @@ export class EquipmentService {
     }
 
     getEquipmentById(id:any):Observable<any>{
-        return this._HttpClient.get(`${environment.baseUrl}Equipment/GetAllEquipmentById/${id}`)
+        return this._HttpClient.get(`${environment.baseUrl}Equipment/GetEquipmentById/${id}`)
     }
 
     createEquipment(data:any):Observable<any>{
@@ -28,4 +28,13 @@ export class EquipmentService {
     deleteEquipment(id:any):Observable<any>{
         return this._HttpClient.delete(`${environment.baseUrl}Equipment/DeleteEquipment/${id}`)
     }
+
+    downloadEquipmentsExcel():Observable<any>{
+        return this._HttpClient.get(`${environment.baseUrl}Equipment/DownloadTemplate`,
+            {
+                responseType: 'blob'
+            }
+        )
+    }
+
 }

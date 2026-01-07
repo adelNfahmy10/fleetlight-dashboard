@@ -1,10 +1,10 @@
 <div>
     <ul class="flex space-x-2 rtl:space-x-reverse">
         <li>
-            <a href="javascript:;" class="text-primary hover:underline">Dashboard</a>
+            <a href="javascript:;" class="text-primary hover:underline">لوحة التحكم</a>
         </li>
         <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
-            <span>Sales</span>
+            <span>صاحب المعدات</span>
         </li>
     </ul>
 
@@ -12,7 +12,7 @@
         <div class="mb-6 grid gap-6 xl:grid-cols-3">
             <div class="panel h-full xl:col-span-2">
                 <div class="mb-5 flex items-center justify-between dark:text-white-light">
-                    <h5 class="text-lg font-semibold">Revenue</h5>
+                    <h5 class="text-lg font-semibold">الإيرادات</h5>
                     <div class="dropdown ltr:ml-auto rtl:mr-auto">
                         <div hlMenu>
                             <a hlMenuButton href="javascript:;" class="align-middle">
@@ -20,19 +20,19 @@
                             </a>
                             <ul *hlMenuItems @toggleAnimation class="ltr:right-0 rtl:left-0">
                                 <li>
-                                    <a href="javascript:;" *hlMenuItem="let menuItem">Weekly</a>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">اسبوعي</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" *hlMenuItem="let menuItem">Monthly</a>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">شهري</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" *hlMenuItem="let menuItem">Yearly</a>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">سنوي</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <p class="text-lg dark:text-white-light/90">Total Profit <span class="ml-2 text-primary">$10,840</span></p>
+                <p class="text-lg dark:text-white-light/90">إجمالي الربح : <span class="ml-2 text-primary">$10,840</span></p>
                 <div class="relative overflow-hidden">
                     <apx-chart
                         [series]="revenueChart.series"
@@ -58,33 +58,71 @@
                 </div>
             </div>
 
-            <div class="panel h-full">
-                <div class="mb-5 flex items-center">
-                    <h5 class="text-lg font-semibold dark:text-white-light">Sales By Category</h5>
+            <div class="panel h-full w-full px-2">
+                <div class="mb-3 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">العملاء الأكثر شراء</h5>
                 </div>
-                <div class="overflow-hidden">
-                    <apx-chart
-                        [series]="salesByCategory.series"
-                        [chart]="salesByCategory.chart"
-                        [dataLabels]="salesByCategory.dataLabels"
-                        [stroke]="salesByCategory.stroke"
-                        [colors]="salesByCategory.colors"
-                        [legend]="salesByCategory.legend"
-                        [plotOptions]="salesByCategory.plotOptions"
-                        [labels]="salesByCategory.labels"
-                        [states]="salesByCategory.states"
-                        class="rounded-lg bg-white dark:bg-black"
-                    >
-                        <!-- loader -->
-                        <div class="grid min-h-[460px] place-content-center bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08]">
-                            <span class="inline-flex h-5 w-5 animate-spin rounded-full border-2 border-black !border-l-transparent dark:border-white"></span>
-                        </div>
-                    </apx-chart>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="ltr:rounded-l-md rtl:rounded-r-md">العملاء</th>
+                                <th>عمليات الشراء</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="min-w-[150px] text-black dark:text-white">
+                                    <div class="flex items-center">
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-6.jpeg" alt="avatar" /> -->
+                                        <span class="whitespace-nowrap">محمود السيد</span>
+                                    </div>
+                                </td>
+                                <td class="text-center">894</td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex items-center">
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-7.jpeg" alt="avatar" /> -->
+                                        <span class="whitespace-nowrap">إسلام عماد</span>
+                                    </div>
+                                </td>
+                                <td class="text-center">734</td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex items-center">
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-8.jpeg" alt="avatar" /> -->
+                                        <span class="whitespace-nowrap">فوزي إسماعيل</span>
+                                    </div>
+                                </td>
+                                <td class="text-center">563</td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex items-center">
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-9.jpeg" alt="avatar" /> -->
+                                        <span class="whitespace-nowrap">سلوى الحجار</span>
+                                    </div>
+                                </td>
+                                <td class="text-center">354</td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex items-center">
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-10.jpeg" alt="avatar" /> -->
+                                        <span class="whitespace-nowrap">إبراهيم النحاس</span>
+                                    </div>
+                                </td>
+                                <td class="text-center">127</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
 
-        <div class="mb-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <!-- <div class="mb-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             <div class="panel h-full sm:col-span-2 xl:col-span-1">
                 <div class="mb-5 flex items-center">
                     <h5 class="text-lg font-semibold dark:text-white-light">
@@ -112,7 +150,6 @@
                         [grid]="dailySales.grid"
                         class="rounded-lg bg-white dark:bg-black"
                     >
-                        <!-- loader -->
                         <div class="grid min-h-[175px] place-content-center bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08]">
                             <span class="inline-flex h-5 w-5 animate-spin rounded-full border-2 border-black !border-l-transparent dark:border-white"></span>
                         </div>
@@ -223,16 +260,15 @@
                         [tooltip]="totalOrders.tooltip"
                         class="rounded-lg bg-white dark:bg-black"
                     >
-                        <!-- loader -->
                         <div class="grid min-h-[290px] place-content-center bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08]">
                             <span class="inline-flex h-5 w-5 animate-spin rounded-full border-2 border-black !border-l-transparent dark:border-white"></span>
                         </div>
                     </apx-chart>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="mb-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <!-- <div class="mb-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             <div class="panel h-full pb-0 sm:col-span-2 xl:col-span-1">
                 <h5 class="mb-5 text-lg font-semibold dark:text-white-light">Recent Activities</h5>
 
@@ -550,84 +586,84 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <div class="panel h-full w-full">
                 <div class="mb-5 flex items-center justify-between">
-                    <h5 class="text-lg font-semibold dark:text-white-light">Recent Orders</h5>
+                    <h5 class="text-lg font-semibold dark:text-white-light">الطلبات الأخيرة</h5>
                 </div>
                 <div class="table-responsive">
                     <table>
                         <thead>
                             <tr>
-                                <th class="ltr:rounded-l-md rtl:rounded-r-md">Customer</th>
-                                <th>Product</th>
-                                <th>Invoice</th>
-                                <th>Price</th>
-                                <th class="ltr:rounded-r-md rtl:rounded-l-md">Status</th>
+                                <th class="ltr:rounded-l-md rtl:rounded-r-md">العملاء</th>
+                                <th>المنتج</th>
+                                <th>الطلب</th>
+                                <th>المبلغ</th>
+                                <!-- <th class="ltr:rounded-r-md rtl:rounded-l-md">Status</th> -->
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
                                 <td class="min-w-[150px] text-black dark:text-white">
                                     <div class="flex items-center">
-                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-6.jpeg" alt="avatar" />
-                                        <span class="whitespace-nowrap">Luke Ivory</span>
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-6.jpeg" alt="avatar" /> -->
+                                        <span class="whitespace-nowrap">محمود السيد</span>
                                     </div>
                                 </td>
-                                <td class="text-primary">Headphone</td>
+                                <td class="text-primary">جرار</td>
                                 <td><a routerLink="/apps/invoice/preview">#46894</a></td>
                                 <td>$56.07</td>
-                                <td><span class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span></td>
+                                <!-- <td><span class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span></td> -->
                             </tr>
                             <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
                                 <td class="text-black dark:text-white">
                                     <div class="flex items-center">
-                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-7.jpeg" alt="avatar" />
-                                        <span class="whitespace-nowrap">Andy King</span>
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-7.jpeg" alt="avatar" /> -->
+                                        <span class="whitespace-nowrap">إسلام عماد</span>
                                     </div>
                                 </td>
-                                <td class="text-info">Nike Sport</td>
+                                <td class="text-info">حفار</td>
                                 <td><a routerLink="/apps/invoice/preview">#76894</a></td>
                                 <td>$126.04</td>
-                                <td><span class="badge bg-secondary shadow-md dark:group-hover:bg-transparent">Shipped</span></td>
+                                <!-- <td><span class="badge bg-secondary shadow-md dark:group-hover:bg-transparent">Shipped</span></td> -->
                             </tr>
                             <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
                                 <td class="text-black dark:text-white">
                                     <div class="flex items-center">
-                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-8.jpeg" alt="avatar" />
-                                        <span class="whitespace-nowrap">Laurie Fox</span>
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-8.jpeg" alt="avatar" /> -->
+                                        <span class="whitespace-nowrap">فوزي إسماعيل</span>
                                     </div>
                                 </td>
-                                <td class="text-warning">Sunglasses</td>
+                                <td class="text-warning">مسمار سن</td>
                                 <td><a routerLink="/apps/invoice/preview">#66894</a></td>
                                 <td>$56.07</td>
-                                <td><span class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span></td>
+                                <!-- <td><span class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span></td> -->
                             </tr>
                             <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
                                 <td class="text-black dark:text-white">
                                     <div class="flex items-center">
-                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-9.jpeg" alt="avatar" />
-                                        <span class="whitespace-nowrap">Ryan Collins</span>
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-9.jpeg" alt="avatar" /> -->
+                                        <span class="whitespace-nowrap">سلوى الحجار</span>
                                     </div>
                                 </td>
-                                <td class="text-danger">Sport</td>
+                                <td class="text-danger">سلاح حفار 300م</td>
                                 <td><a routerLink="/apps/invoice/preview">#75844</a></td>
                                 <td>$110.00</td>
-                                <td><span class="badge bg-secondary shadow-md dark:group-hover:bg-transparent">Shipped</span></td>
+                                <!-- <td><span class="badge bg-secondary shadow-md dark:group-hover:bg-transparent">Shipped</span></td> -->
                             </tr>
                             <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
                                 <td class="text-black dark:text-white">
                                     <div class="flex items-center">
-                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-10.jpeg" alt="avatar" />
-                                        <span class="whitespace-nowrap">Irene Collins</span>
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-10.jpeg" alt="avatar" /> -->
+                                        <span class="whitespace-nowrap">إبراهيم النحاس</span>
                                     </div>
                                 </td>
-                                <td class="text-secondary">Speakers</td>
+                                <td class="text-secondary">عربية نقل</td>
                                 <td><a routerLink="/apps/invoice/preview">#46894</a></td>
                                 <td>$56.07</td>
-                                <td><span class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span></td>
+                                <!-- <td><span class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span></td> -->
                             </tr>
                         </tbody>
                     </table>
@@ -636,109 +672,109 @@
 
             <div class="panel h-full w-full">
                 <div class="mb-5 flex items-center justify-between">
-                    <h5 class="text-lg font-semibold dark:text-white-light">Top Selling Product</h5>
+                    <h5 class="text-lg font-semibold dark:text-white-light">المنتجات الأكثر مبيعًا</h5>
                 </div>
                 <div class="table-responsive">
                     <table>
                         <thead>
                             <tr class="border-b-0">
-                                <th class="ltr:rounded-l-md rtl:rounded-r-md">Product</th>
-                                <th>Price</th>
-                                <th>Discount</th>
-                                <th>Sold</th>
-                                <th class="ltr:rounded-r-md rtl:rounded-l-md">Source</th>
+                                <th class="ltr:rounded-l-md rtl:rounded-r-md">المنتج</th>
+                                <th>السعر</th>
+                                <th>الخصم</th>
+                                <th>المبيعات</th>
+                                <!-- <th class="ltr:rounded-r-md rtl:rounded-l-md">Source</th> -->
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
                                 <td class="min-w-[150px] text-black dark:text-white">
                                     <div class="flex">
-                                        <img
+                                        <!-- <img
                                             class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3"
                                             src="/assets/images/product-headphones.jpg"
                                             alt="avatar"
-                                        />
-                                        <p class="whitespace-nowrap">Headphone <span class="block text-xs text-primary">Digital</span></p>
+                                        /> -->
+                                        <p class="whitespace-nowrap">جرار <span class="block text-xs text-primary">معدة</span></p>
                                     </div>
                                 </td>
                                 <td>$168.09</td>
                                 <td>$60.09</td>
                                 <td>170</td>
-                                <td>
+                                <!-- <td>
                                     <a class="flex items-center text-danger" href="javascript:;">
                                         <icon-multiple-forward-right class="ltr:mr-1 rtl:ml-1 rtl:rotate-180" />
 
                                         Direct
                                     </a>
-                                </td>
+                                </td> -->
                             </tr>
                             <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
                                 <td class="text-black dark:text-white">
                                     <div class="flex">
-                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-shoes.jpg" alt="avatar" />
-                                        <p class="whitespace-nowrap">Shoes <span class="block text-xs text-warning">Faishon</span></p>
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-shoes.jpg" alt="avatar" /> -->
+                                        <p class="whitespace-nowrap">مسمار 30سن<span class="block text-xs text-warning">قطع غيار</span></p>
                                     </div>
                                 </td>
                                 <td>$126.04</td>
                                 <td>$47.09</td>
                                 <td>130</td>
-                                <td>
+                                <!-- <td>
                                     <a class="flex items-center text-success" href="javascript:;">
                                         <icon-multiple-forward-right class="ltr:mr-1 rtl:ml-1 rtl:rotate-180" />
                                         Google
                                     </a>
-                                </td>
+                                </td> -->
                             </tr>
                             <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
                                 <td class="text-black dark:text-white">
                                     <div class="flex">
-                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-watch.jpg" alt="avatar" />
-                                        <p class="whitespace-nowrap">Watch <span class="block text-xs text-danger">Accessories</span></p>
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-watch.jpg" alt="avatar" /> -->
+                                        <p class="whitespace-nowrap">حفار <span class="block text-xs text-danger">معدة</span></p>
                                     </div>
                                 </td>
                                 <td>$56.07</td>
                                 <td>$20.00</td>
                                 <td>66</td>
-                                <td>
+                                <!-- <td>
                                     <a class="flex items-center text-warning" href="javascript:;">
                                         <icon-multiple-forward-right class="ltr:mr-1 rtl:ml-1 rtl:rotate-180" />
                                         Ads
                                     </a>
-                                </td>
+                                </td> -->
                             </tr>
                             <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
                                 <td class="text-black dark:text-white">
                                     <div class="flex">
-                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-laptop.jpg" alt="avatar" />
-                                        <p class="whitespace-nowrap">Laptop <span class="block text-xs text-primary">Digital</span></p>
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-laptop.jpg" alt="avatar" /> -->
+                                        <p class="whitespace-nowrap">سلاح حفار 300سن <span class="block text-xs text-primary">قطع غيار</span></p>
                                     </div>
                                 </td>
                                 <td>$110.00</td>
                                 <td>$33.00</td>
                                 <td>35</td>
-                                <td>
+                                <!-- <td>
                                     <a class="flex items-center text-secondary" href="javascript:;">
                                         <icon-multiple-forward-right class="ltr:mr-1 rtl:ml-1 rtl:rotate-180" />
                                         Email
                                     </a>
-                                </td>
+                                </td> -->
                             </tr>
                             <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
                                 <td class="text-black dark:text-white">
                                     <div class="flex">
-                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-camera.jpg" alt="avatar" />
-                                        <p class="whitespace-nowrap">Camera <span class="block text-xs text-primary">Digital</span></p>
+                                        <!-- <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-camera.jpg" alt="avatar" /> -->
+                                        <p class="whitespace-nowrap">عربية نقل <span class="block text-xs text-primary">معدة</span></p>
                                     </div>
                                 </td>
                                 <td>$56.07</td>
                                 <td>$26.04</td>
                                 <td>30</td>
-                                <td>
+                                <!-- <td>
                                     <a class="flex items-center text-primary" href="javascript:;">
                                         <icon-multiple-forward-right class="ltr:mr-1 rtl:ml-1 rtl:rotate-180" />
                                         Referral
                                     </a>
-                                </td>
+                                </td> -->
                             </tr>
                         </tbody>
                     </table>

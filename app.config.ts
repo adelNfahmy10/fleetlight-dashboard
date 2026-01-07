@@ -1,6 +1,6 @@
 import { ApplicationConfig, importProvidersFrom, enableProdMode } from '@angular/core';
 import { provideRouter, withViewTransitions, withInMemoryScrolling } from '@angular/router';
-import { provideHttpClient, HttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { provideHttpClient, HttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS, withInterceptors, withFetch } from '@angular/common/http';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
@@ -41,6 +41,7 @@ import { provideScrollbarOptions } from 'ngx-scrollbar';
 import { provideHighlightOptions } from 'ngx-highlightjs';
 
 import { provideToastr } from 'ngx-toastr';
+import { headerInterceptor } from './src/app/core/interceptors/header/header-interceptor';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -54,7 +55,7 @@ export const appConfig: ApplicationConfig = {
                 scrollPositionRestoration: 'enabled',
             }),
         ),
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(withFetch(), withInterceptors([headerInterceptor])),
         provideTranslateService({
             loader: provideTranslateHttpLoader({
                 prefix: './assets/i18n/',
