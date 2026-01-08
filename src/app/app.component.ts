@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { NgxSpinnerComponent } from "ngx-spinner";
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    imports: [RouterOutlet],
+    imports: [RouterOutlet, NgxSpinnerComponent],
 })
 export class AppComponent {
     constructor(

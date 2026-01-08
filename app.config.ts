@@ -43,11 +43,14 @@ import { provideHighlightOptions } from 'ngx-highlightjs';
 import { provideToastr } from 'ngx-toastr';
 import { headerInterceptor } from './src/app/core/interceptors/header/header-interceptor';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+import { loadingInterceptor } from './src/app/core/interceptors/loading/loading-interceptor';
+
 export const appConfig: ApplicationConfig = {
     providers: [
         Title,
         AppService,
-        importProvidersFrom(BrowserModule, CommonModule, FormsModule),
+        importProvidersFrom(BrowserModule, CommonModule, FormsModule, NgxSpinnerModule.forRoot()),
         provideRouter(
             routes,
             withViewTransitions(),
@@ -55,7 +58,7 @@ export const appConfig: ApplicationConfig = {
                 scrollPositionRestoration: 'enabled',
             }),
         ),
-        provideHttpClient(withFetch(), withInterceptors([headerInterceptor])),
+        provideHttpClient(withFetch(), withInterceptors([headerInterceptor, loadingInterceptor])),
         provideTranslateService({
             loader: provideTranslateHttpLoader({
                 prefix: './assets/i18n/',

@@ -34,6 +34,7 @@
                             "src/demo-prepare.html"
                         ],
                         "styles": [
+                            "./node_modules/ngx-spinner/animations/ball-scale-multiple.css",
                             "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
                             "src/assets/css/app.css"
                         ],
