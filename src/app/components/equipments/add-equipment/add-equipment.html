@@ -2,68 +2,74 @@
     <div class="panel p-6">
         <div class="head-section">
             @if(equipmentId){
-                <h2 class="font-bold">{{'تعديل المعدة' | translate }}</h2>
+                <h2 class="font-bold">{{'Equipments.Add_Equipments.titleUpdate' | translate }}</h2>
             } @else {
-                <h2 class="font-bold">{{'إضافة معدة جديدة' | translate }}</h2>
+                <h2 class="font-bold">{{'Equipments.Add_Equipments.titleAdd' | translate }}</h2>
             }
         </div>
 
         <form class="grid grid-cols-12 gap-3" [formGroup]="equpimentsForm" >
-
-            <!-- الصف الأول -->
+            <!-- Brand Equimpent -->
             <div class="equipment-brand col-span-6">
-                <label class="text-[16px]">{{ 'العلامة التجارية بالعربية' | translate }}</label>
-                <input formControlName="brandAr" class="form-input" type="text" placeholder="العلامة التجارية" />
+                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.BrandARLabel' | translate }}</label>
+                <input formControlName="brandAr" class="form-input" type="text" [placeholder]="'Equipments.Add_Equipments.BrandARPlaceholder' | translate" />
             </div>
 
              <div class="equipment-brand col-span-6">
-                <label class="text-[16px]">{{ 'العلامة التجارية بالإنجليزية' | translate }}</label>
-                <input formControlName="brandEn" class="form-input" type="text" placeholder="العلامة التجارية" />
+                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.BrandENLabel' | translate }}</label>
+                <input formControlName="brandEn" class="form-input" type="text" [placeholder]="'Equipments.Add_Equipments.BrandENPlaceholder' | translate" />
+            </div>
+
+            <!-- Model Equimpent -->
+            <div class="equipment-model col-span-6">
+                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.ModelARLabel' | translate }}</label>
+                <input formControlName="modelAr" class="form-input" type="text" [placeholder]="'Equipments.Add_Equipments.ModelARPlaceholder' | translate" />
             </div>
 
             <div class="equipment-model col-span-6">
-                <label class="text-[16px]">{{ 'الطراز بالعربية' | translate }}</label>
-                <input formControlName="modelAr" class="form-input" type="text" placeholder="الطراز" />
-            </div>
-
-            <div class="equipment-model col-span-6">
-                <label class="text-[16px]">{{ 'الطراز بالإنجليزية' | translate }}</label>
-                <input formControlName="modelEn" class="form-input" type="text" placeholder="الطراز" />
+                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.ModelENLabel' | translate }}</label>
+                <input formControlName="modelEn" class="form-input" type="text" [placeholder]="'Equipments.Add_Equipments.ModelENPlaceholder' | translate" />
             </div>
 
 
-            <!-- الصف الثاني -->
+            <!-- Year Of ManuFacture Equimpent -->
             <div class="equipment-yearOfManufacture col-span-4">
-                <label class="text-[16px]">{{ 'سنة الصنع' | translate }}</label>
-                <input formControlName="yearOfManufacture" class="form-input" type="text" placeholder="سنة الصنع" />
+                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.ManuFactureLabel' | translate }}</label>
+                 <ng-select
+                        [items]="years"
+                        formControlName="yearOfManufacture"
+                        [clearable]="false"
+                        [searchable]="true"
+                        [placeholder]="'Equipments.Add_Equipments.ManuFacturePlaceholder' | translate"
+                        class="custom-multiselect"
+                    >
+                </ng-select>
             </div>
 
+            <!-- Chassis Number Equimpent -->
             <div class="equipment-chassisNumber col-span-4">
-                <label class="text-[16px]">{{ 'رقم الشاسية' | translate }}</label>
-                <input formControlName="chassisNumber" class="form-input" type="text" placeholder="رقم الشاسية" />
+                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.ChassisNumberLabel' | translate }}</label>
+                <input formControlName="chassisNumber" class="form-input" type="number" [placeholder]="'Equipments.Add_Equipments.ChassisNumberPlaceholder' | translate" />
             </div>
 
+            <!-- Asset Number Equimpent -->
             <div class="equipment-assetNumber col-span-4">
-                <label class="text-[16px]">{{ 'رقم الأصل' | translate }}</label>
-                <input formControlName="assetNumber" class="form-input" type="text" placeholder="رقم الأصل" />
+                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.AssetNumberLabel' | translate }}</label>
+                <input formControlName="assetNumber" class="form-input" type="number" [placeholder]="'Equipments.Add_Equipments.AssetNumberPlaceholder' | translate "/>
             </div>
 
-            <!-- الزر -->
+            <!-- Buttons Equimpent -->
             <div class="btn-submit col-span-12 flex justify-center mt-3">
-
-
                 @if(equipmentId){
                     <button class="btn btn-success" type="button" (click)="updateEquipment()">
-                        {{ 'تعديل المعدة' | translate }}
+                        {{ 'Equipments.Add_Equipments.UpdateBtnEquipments' | translate }}
                     </button>
                 } @else {
                     <button class="btn btn-primary" type="button" (click)="submitEqupimentsForm()">
-                        {{ 'إضافة المعدة' | translate }}
+                        {{ 'Equipments.Add_Equipments.AddBtnEquipments' | translate }}
                     </button>
                 }
-
             </div>
-
         </form>
     </div>
 </section>

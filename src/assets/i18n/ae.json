@@ -1,10 +1,10 @@
 {
     "Login":{
         "SignIn": "تسجـيل الدخـــول",
-        "SignInTitle":"أدخل البريد الإلكتروني و كلمة المرور للتسجيل الدخول",
+        "SignInTitle":"أدخل إسم المستخدم و كلمة المرور للتسجيل الدخول",
 
-        "EmailLable":"البريد الإلكتروني",
-        "EmailPlaceholder":"أدخل البريد الإلكتروني",
+        "UsernameLabel":"إسم المستخدم",
+        "UsernamePlaceholder":"أدخل إسم المستخدم",
 
         "PasswordLabel":"كلمة المرور",
         "PasswordPlaceholder":"أدخل كلمة المرور",
@@ -20,8 +20,8 @@
         "FullNameLable":"الأســـم",
         "FullNamePlaceholder":"أدخل الأسم بالكامل",
 
-        "EmailLable":"البريد الإلكتروني",
-        "EmailPlaceholder":"أدخل البريد الإلكتروني",
+        "UsernameLabel":"البريد الإلكتروني",
+        "UsernamePlaceholder":"أدخل البريد الإلكتروني",
 
         "PhoneLabel":"التليفون",
         "PhonePlaceholder":"أدخل رقم التليفون",
@@ -39,6 +39,41 @@
         "SignIn":"تسجيل الدخول"
     },
 
+    "Equipments" : {
+        "Add_Equipments":{
+            "titleUpdate" : "تعديل المعدة",
+            "titleAdd" : "إضافة معدة جديدة",
+            "BrandARLabel" : "العلامة التجارية بالعربية",
+            "BrandARPlaceholder" : "أدخل العلامة التجارية بالعربية",
+            "BrandENLabel" : "العلامة التجارية بالإنجليزية",
+            "BrandENPlaceholder" : "أدخل العلامة التجارية بالإنجليزية",
+            "ModelARLabel" : "الطراز بالعربية",
+            "ModelARPlaceholder" : "أدخل الطراز بالعربية",
+            "ModelENLabel" : "الطراز بالإنجليزية",
+            "ModelENPlaceholder" : "أدخل الطراز بالإنجليزية",
+            "ManuFactureLabel" : "سنة الصنع",
+            "ManuFacturePlaceholder" : "أدخل سنة الصنع",
+            "ChassisNumberLabel" : "رقم الشاسية",
+            "ChassisNumberPlaceholder" : "أدخل رقم الشاسية",
+            "AssetNumberLabel" : "رقم الأصل",
+            "AssetNumberPlaceholder" : "أدخل رقم الأصل",
+            "AddBtnEquipments" : "إضافة المعدة",
+            "UpdateBtnEquipments" : "تعديل المعدة"
+        },
+        "View_Equipments":{
+            "TiteView":"عرض المعدات",
+            "DownloadBtnExcel":"تحميل Excle",
+            "SearchPlaceholder": "البحث...",
+            "BrandLabel" : "العلامة التجارية",
+            "ModelLabel" : "الطراز",
+            "ManuFactureLabel" : "سنة الصنع",
+            "ChassisNumberLabel" : "رقم الشاسية",
+            "AssetNumberLabel" : "رقم الأصل",
+            "ActionLabel" : "الإجراء",
+            "ShowPaginationInfo": "عرض السجلات"
+        }
+
+    },
 
 
 

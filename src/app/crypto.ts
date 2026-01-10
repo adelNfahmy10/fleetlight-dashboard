@@ -759,7 +759,7 @@ export class CryptoComponent {
             markers: {
                 size: 0,
             },
-            colors: ['#4361ee'],
+            colors: ['#2449E2'],
             grid: {
                 padding: {
                     top: 0,

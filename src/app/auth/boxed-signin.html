@@ -67,13 +67,25 @@
                     </div>
                     <form class="space-y-5 dark:text-white" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
                         <div>
-                            <label for="Email">{{'Login.EmailLable' | translate}}</label>
+                            <label for="Email">{{'Login.UsernameLabel' | translate}}</label>
                             <div class="relative text-white-dark">
-                                <input formControlName="username" id="Email" type="email" [placeholder]="'Login.EmailPlaceholder' | translate" class="form-input ps-10 placeholder:text-white-dark" />
+                                <input formControlName="username" id="Email" type="email" [placeholder]="'Login.UsernamePlaceholder' | translate" class="form-input ps-10 placeholder:text-white-dark" />
                                 <span class="absolute start-4 top-1/2 -translate-y-1/2">
                                     <icon-mail [fill]="true" />
                                 </span>
                             </div>
+                            @if(loginForm.get('email')?.errors && loginForm.get('email')?.touched){
+                                <div class="alert alert-danger my-2">
+                                @if(loginForm.get('email')?.getError('required')){
+                                    <p class="m-0">Email Is Required</p>
+                                }
+                                @else if (loginForm.get('email')?.getError('email')) {
+                                    <p class="m-0">Email Is InValid</p>
+                                }
+
+                                </div>
+                            }
+
                         </div>
                         <div>
                             <label for="Password">{{'Login.PasswordLabel' | translate}}</label>

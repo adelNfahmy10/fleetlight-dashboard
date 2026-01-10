@@ -687,7 +687,7 @@ export class WidgetsComponent {
                 curve: 'smooth',
                 width: 2,
             },
-            colors: ['#4361ee'],
+            colors: ['#2449E2'],
             grid: {
                 padding: {
                     top: 5,

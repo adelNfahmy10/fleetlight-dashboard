@@ -3,8 +3,8 @@
         "SignIn": "تسجـيل الدخـــول",
         "SignInTitle":"أدخل البريد الإلكتروني و كلمة المرور للتسجيل الدخول",
 
-        "EmailLable":"البريد الإلكتروني",
-        "EmailPlaceholder":"أدخل البريد الإلكتروني",
+        "UsernameLabel":"البريد الإلكتروني",
+        "UsernamePlaceholder":"أدخل البريد الإلكتروني",
 
         "PasswordLabel":"كلمة المرور",
         "PasswordPlaceholder":"أدخل كلمة المرور",
@@ -20,8 +20,8 @@
         "FullNameLable":"الأســـم",
         "FullNamePlaceholder":"أدخل الأسم بالكامل",
 
-        "EmailLable":"البريد الإلكتروني",
-        "EmailPlaceholder":"أدخل البريد الإلكتروني",
+        "UsernameLabel":"البريد الإلكتروني",
+        "UsernamePlaceholder":"أدخل البريد الإلكتروني",
 
         "PhoneLabel":"التليفون",
         "PhonePlaceholder":"أدخل رقم التليفون",

@@ -17,8 +17,8 @@ module.exports = {
         extend: {
             colors: {
                 primary: {
-                    DEFAULT: '#4361ee',
-                    light: '#eaf1ff',
+                    DEFAULT: '#2449E2',
+                    light: '#EFEFEF',
                     'dark-light': 'rgba(67,97,238,.15)',
                 },
                 secondary: {
@@ -63,7 +63,7 @@ module.exports = {
                 },
             },
             fontFamily: {
-                nunito: ['Nunito', 'sans-serif'],
+                nunito: ['Amariya', 'sans-serif'],
             },
             spacing: {
                 4.5: '18px',

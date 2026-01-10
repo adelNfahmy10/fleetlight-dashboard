@@ -2,9 +2,9 @@
     "Login":{
         "SignIn": "SIGN IN",
         "SignInTitle":"Enter your email and password to login",
-        "EmailLable":"Email",
+        "UsernameLabel":"Email",
         "PasswordLabel":"Password",
-        "EmailPlaceholder":"Enter Email",
+        "UsernamePlaceholder":"Enter Email",
         "PasswordPlaceholder":"Enter Password",
         "HavntAcc":"Don't have an account ?",
         "SignUp":"SIGN UP"

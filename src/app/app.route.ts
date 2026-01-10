@@ -5,11 +5,14 @@ import { AppLayout } from './layouts/app-layout';
 import { AuthLayout } from './layouts/auth-layout';
 
 import { NotFoundComponent } from './not-found';
+import { logedGuard } from './core/guards/loged/loged-guard';
+import { authGuard } from './core/guards/auth/auth-guard';
 
 export const routes: Routes = [
     {
         path: '',
         component: AuthLayout,
+        canActivate:[logedGuard],
         children: [
             // auth
             { path: '', redirectTo:'auth', pathMatch:'full'},
@@ -25,6 +28,7 @@ export const routes: Routes = [
     {
         path: '',
         component: AppLayout,
+        canActivate:[authGuard],
         children: [
             { path: 'add-equpiment', loadComponent: () => import('./components/equipments/add-equipment/add-equipment').then((d) => d.AddEquipment), data: { title: 'Add Equipment' } },
             { path: 'update-equpiment/:id', loadComponent: () => import('./components/equipments/add-equipment/add-equipment').then((d) => d.AddEquipment), data: { title: 'Add Equipment' } },

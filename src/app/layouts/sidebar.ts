@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -31,6 +31,8 @@ import { IconMenuPagesComponent } from '../shared/icon/menu/icon-menu-pages';
 import { IconMenuAuthenticationComponent } from '../shared/icon/menu/icon-menu-authentication';
 import { IconMenuDocumentationComponent } from '../shared/icon/menu/icon-menu-documentation';
 import { IconLogoutComponent } from "../shared/icon/icon-logout";
+import { AuthService } from '../service/auth/auth-service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'sidebar',
@@ -50,6 +52,9 @@ import { IconLogoutComponent } from "../shared/icon/icon-logout";
     animations: [slideDownUp],
 })
 export class SidebarComponent {
+    private readonly _AuthService = inject(AuthService)
+    private readonly _ToastrService = inject(ToastrService)
+
     active = false;
     store: any;
     activeDropdown: string[] = [];
@@ -102,5 +107,19 @@ export class SidebarComponent {
         } else {
             this.activeDropdown.push(name);
         }
+    }
+
+    logout():void{
+        this._AuthService.logout().subscribe({
+            next:(res)=>{
+                this._ToastrService.success(res.msg)
+                localStorage.removeItem('token')
+                localStorage.removeItem('refreshToken')
+                localStorage.removeItem('userId')
+                localStorage.removeItem('fullName')
+                localStorage.removeItem('role')
+                this.router.navigate(['/auth/boxed-signin'])
+            }
+        })
     }
 }

@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataTableModule } from "@bhplugin/ng-datatable";
 import { EquipmentService } from '../../../service/equipment/equipment-service';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { IconPencilComponent } from "../../../shared/icon/icon-pencil";
 import { IconTrashLinesComponent } from "../../../shared/icon/icon-trash-lines";
 import { IconFileComponent } from "../../../shared/icon/icon-file";
@@ -18,22 +18,37 @@ import { Router, RouterLink } from '@angular/router';
 export class ViewEqupiments implements OnInit{
     private readonly _EquipmentService = inject(EquipmentService)
     private readonly _ToastrService = inject(ToastrService)
+    private readonly _TranslateService = inject(TranslateService)
     private readonly _Router = inject(Router)
 
     search = '';
+    allEquipments:any[] = []
+    translatedCols: any[] = [];
+
     cols = [
         // { field: 'id', title: 'ID', isUnique: true },
-        { field: 'brand', title: 'العلامة التجارية' },
-        { field: 'model', title: 'الطراز' },
-        { field: 'yearOfManufacture', title: 'سنة الصنع' },
-        { field: 'chassisNumber', title: 'رقم الشاسية' },
-        { field: 'assetNumber', title: 'رقم الأصل' },
-        { field: 'action', title: 'الإجراء', sort: false, headerClass: 'justify-center' },
+        { field: 'brand', title: 'Equipments.View_Equipments.BrandLabel' },
+        { field: 'model', title: 'Equipments.View_Equipments.ModelLabel' },
+        { field: 'yearOfManufacture', title: 'Equipments.View_Equipments.ManuFactureLabel' },
+        { field: 'chassisNumber', title: 'Equipments.View_Equipments.ChassisNumberLabel' },
+        { field: 'assetNumber', title: 'Equipments.View_Equipments.AssetNumberLabel' },
+        { field: 'action', title: 'Equipments.View_Equipments.ActionLabel', sort: false, headerClass: 'justify-center' },
     ];
 
-    allEquipments:any[] = []
+
     ngOnInit(): void {
         this.getAllEquipments()
+        this.buildColumns();
+        this._TranslateService.onLangChange.subscribe(() => {
+            this.buildColumns();
+        });
+    }
+
+    buildColumns(): void {
+        this.translatedCols = this.cols.map(col => ({
+            ...col,
+            title: this._TranslateService.instant(col.title),
+        }));
     }
 
     getAllEquipments():void{
@@ -68,6 +83,4 @@ export class ViewEqupiments implements OnInit{
             }
         })
     }
-
-
 }

@@ -167,6 +167,7 @@
                                 </div>
                             </li> -->
 
+                            <!-- Equipments Section -->
                             <li class="accordion menu nav-item">
                                 <button
                                     type="button"
@@ -191,27 +192,19 @@
                                             <a routerLink="/view-equipment" routerLinkActive="active" (click)="toggleMobileMenu()">
                                                 {{ 'عرض المعدات' | translate }}
                                             </a>
-
-                                            <!-- <a routerLink="/pages/coming-soon-boxed" routerLinkActive="active" (click)="toggleMobileMenu()">
-                                                {{ 'عرض المعدات' | translate }}
-                                            </a> -->
-
                                         </li>
                                         <li>
                                             <a routerLink="/add-equpiment" routerLinkActive="active" (click)="toggleMobileMenu()"
                                                 >{{ 'إضافة المعدة' | translate }}</a
                                             >
-
-                                             <!-- <a routerLink="/pages/coming-soon-boxed" routerLinkActive="active" (click)="toggleMobileMenu()"
-                                                >{{ 'إضافة المعدة' | translate }}</a
-                                            > -->
                                         </li>
                                     </ul>
                                 </div>
                             </li>
 
+                            <!-- Logout Section -->
                             <li class="nav-item">
-                                <a routerLink="/auth/boxed-signin" class="group" routerLinkActive="active" (click)="toggleMobileMenu()">
+                                <a class="group cr" (click)="logout()">
                                     <div class="flex items-center">
                                         <icon-logout class="h-4.5 w-4.5 shrink-0 group-hover:!text-danger rotate-90 ltr:mr-2 rtl:ml-2 transition" />
                                         <span class="text-black transition group-hover:!text-danger dark:text-[#506690] dark:group-hover:text-white-dark ltr:pl-3 rtl:pr-3">
