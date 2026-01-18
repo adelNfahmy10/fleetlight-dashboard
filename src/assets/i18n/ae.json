@@ -57,20 +57,41 @@
             "ChassisNumberPlaceholder" : "أدخل رقم الشاسية",
             "AssetNumberLabel" : "رقم الأصل",
             "AssetNumberPlaceholder" : "أدخل رقم الأصل",
+            "ImageEquipmentLabel" : "إختر صورة المعدة",
+            "UpdateBtnEquipments" : "تعديل المعدة",
             "AddBtnEquipments" : "إضافة المعدة",
-            "UpdateBtnEquipments" : "تعديل المعدة"
+            "ImageFileMsg" : "أختر صورة للمعدة",
+            "EquipmentTypeLabel" : "نوع الإدخال (معدة / شاحنة)",
+            "EquipmentTypePlaceholder" : "نوع الإدخال",
+            "ForSaleLabel" : "للبيع",
+            "ForRentLabel" : "للإيجار",
+            "ForSalePlaceholder" : "سعر البيع",
+            "ForRentPlaceholder" : "سعر الإيجار"
         },
         "View_Equipments":{
             "TiteView":"عرض المعدات",
             "DownloadBtnExcel":"تحميل Excle",
             "SearchPlaceholder": "البحث...",
+            "imageLabel" : "صورة المعدة / الشاحنة",
             "BrandLabel" : "العلامة التجارية",
             "ModelLabel" : "الطراز",
             "ManuFactureLabel" : "سنة الصنع",
             "ChassisNumberLabel" : "رقم الشاسية",
             "AssetNumberLabel" : "رقم الأصل",
+            "SalePriceLabel" : "سعر البيع",
+            "RentPriceLabel" : "سعر الإيجار",
+            "Currency" : "ريال",
+            "DetailsEquimpent" : "تفاصيل المعدة",
+            "UserName" : "إسم السائق / الميكانيكي",
+            "HoursLable" : "عدد ساعات الإستخدام",
+            "Hours" : "ساعات",
+            "Letters" : "لتر",
+            "KM" : "كم",
+            "GasLabel" : "الجاز المطلوب",
+            "KiloMetters" : "المسافة المستخدمة",
             "ActionLabel" : "الإجراء",
-            "ShowPaginationInfo": "عرض السجلات"
+            "ShowPaginationInfo": "عرض السجلات",
+            "closeBtn": "إغلاق"
         }
 
     },

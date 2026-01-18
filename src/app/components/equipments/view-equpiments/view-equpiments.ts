@@ -8,10 +8,13 @@ import { IconTrashLinesComponent } from "../../../shared/icon/icon-trash-lines";
 import { IconFileComponent } from "../../../shared/icon/icon-file";
 import { ToastrService } from 'ngx-toastr';
 import { Router, RouterLink } from '@angular/router';
+import { IconInfoCircleComponent } from "../../../shared/icon/icon-info-circle";
+import { NgClass } from '@angular/common';
+import { NgxCustomModalComponent } from "ngx-custom-modal";
 
 @Component({
   selector: 'app-view-equpiments',
-  imports: [DataTableModule, FormsModule, TranslatePipe, IconPencilComponent, IconTrashLinesComponent, IconFileComponent, RouterLink],
+  imports: [DataTableModule, FormsModule, TranslatePipe, IconPencilComponent, IconTrashLinesComponent, IconFileComponent, RouterLink, IconInfoCircleComponent, NgClass, NgxCustomModalComponent],
   templateUrl: './view-equpiments.html',
   styleUrl: './view-equpiments.css',
 })
@@ -24,16 +27,38 @@ export class ViewEqupiments implements OnInit{
     search = '';
     allEquipments:any[] = []
     translatedCols: any[] = [];
+    translatedColsDetails: any[] = [];
 
     cols = [
         // { field: 'id', title: 'ID', isUnique: true },
+        { field: 'imagePath', title: 'Equipments.View_Equipments.imageLabel' },
         { field: 'brand', title: 'Equipments.View_Equipments.BrandLabel' },
         { field: 'model', title: 'Equipments.View_Equipments.ModelLabel' },
         { field: 'yearOfManufacture', title: 'Equipments.View_Equipments.ManuFactureLabel' },
         { field: 'chassisNumber', title: 'Equipments.View_Equipments.ChassisNumberLabel' },
         { field: 'assetNumber', title: 'Equipments.View_Equipments.AssetNumberLabel' },
+        { field: 'salePrice', title: 'Equipments.View_Equipments.SalePriceLabel' },
+        { field: 'rentPrice', title: 'Equipments.View_Equipments.RentPriceLabel' },
         { field: 'action', title: 'Equipments.View_Equipments.ActionLabel', sort: false, headerClass: 'justify-center' },
     ];
+
+    colsDetails = [
+        // { field: 'id', title: 'ID', isUnique: true },
+        { field: 'userName', title: 'Equipments.View_Equipments.UserName' },
+        { field: 'hours', title: 'Equipments.View_Equipments.HoursLable' },
+        { field: 'gas', title: 'Equipments.View_Equipments.GasLabel' },
+        { field: 'kilometters', title: 'Equipments.View_Equipments.KiloMetters' },
+    ];
+
+
+    equipmentDetails:any[] = [
+        {
+            userName:'Saed',
+            hours:'8',
+            gas:'70',
+            kilometters:'48',
+        }
+    ]
 
 
     ngOnInit(): void {
@@ -46,6 +71,11 @@ export class ViewEqupiments implements OnInit{
 
     buildColumns(): void {
         this.translatedCols = this.cols.map(col => ({
+            ...col,
+            title: this._TranslateService.instant(col.title),
+        }));
+
+        this.translatedColsDetails = this.colsDetails.map(col => ({
             ...col,
             title: this._TranslateService.instant(col.title),
         }));
