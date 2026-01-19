@@ -119,6 +119,14 @@ export class SidebarComponent {
                 localStorage.removeItem('fullName')
                 localStorage.removeItem('role')
                 this.router.navigate(['/auth/boxed-signin'])
+            },
+            error:(err)=>{
+                this._ToastrService.success(err.error.msg)
+                localStorage.removeItem('token')
+                localStorage.removeItem('refreshToken')
+                localStorage.removeItem('userId')
+                localStorage.removeItem('fullName')
+                localStorage.removeItem('role')
             }
         })
     }

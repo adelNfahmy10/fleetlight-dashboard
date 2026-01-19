@@ -1,0 +1,74 @@
+<section class="add-equipment">
+    <div class="panel p-6">
+        <div class="head-section">
+            <h2 class="font-bold">{{'Equipments.Report_Equipment.titleReport' | translate }}</h2>
+        </div>
+
+        <form class="grid grid-cols-12 gap-3" [formGroup]="equpimentsReportForm" >
+            <!-- Switch Equipment Type -->
+            <div class="equipment-Switch col-span-12">
+                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.EquipmentTypeLabel' | translate }}</label>
+                <ng-select
+                    [items]="allEquipments"
+                    formControlName="equipmentId"
+                    bindLabel="model"
+                    bindValue="id"
+                    [clearable]="false"
+                    [searchable]="true"
+                    [placeholder]="'Equipments.Add_Equipments.EquipmentTypePlaceholder' | translate"
+                    class="custom-multiselect"
+                >
+                </ng-select>
+            </div>
+
+
+            <!-- Usage Hours Equimpent -->
+            <div class="equipment-usageHours col-span-4">
+                <label class="text-[16px]">{{ 'Equipments.Report_Equipment.UsageHoursLabel' | translate }}</label>
+                <input formControlName="usageHours" class="form-input" type="number" min="0" [placeholder]="'Equipments.Report_Equipment.UsageHoursPlaceholder' | translate" />
+            </div>
+
+            <!-- Fuel Liters Equimpent -->
+            <div class="equipment-FuelLiters col-span-4">
+                <label class="text-[16px]">{{ 'Equipments.Report_Equipment.FuelLitersLabel' | translate }}</label>
+                <input formControlName="fuelLiters" class="form-input" type="number" min="0" [placeholder]="'Equipments.Report_Equipment.FuelLitersPlaceholder' | translate" />
+            </div>
+
+            <!-- Usage Hours Equimpent -->
+            <div class="equipment-Kilometers col-span-4">
+                <label class="text-[16px]">{{ 'Equipments.Report_Equipment.KilometersLabel' | translate }}</label>
+                <input formControlName="kilometers" class="form-input" type="number" min="0" [placeholder]="'Equipments.Report_Equipment.KilometersPlaceholder' | translate" />
+            </div>
+
+
+            <!-- Maintenance Description Equimpent -->
+            <div class="equipment-maintenanceDescription col-span-12">
+                <label class="inline-flex mb-3">
+                    <input
+                        type="checkbox"
+                        class="form-checkbox"
+                        [checked]="isCheckRequest"
+                        (change)="isCheckRequest = $event.target.checked"
+                    />
+                    <span>إرسال طلب صيانة</span>
+                </label>
+
+                @if(isCheckRequest){
+                    <label class="text-[16px]">{{ 'Equipments.Maintenance_Request.MaintenanceDetailsLabel' | translate }}</label>
+                    <textarea formControlName="maintenanceDescription" class="form-input" name="maintenanceDescription" id="maintenanceDescription" [placeholder]="'Equipments.Maintenance_Request.MaintenanceDetailsPlaceholder' | translate" ></textarea>
+                }
+            </div>
+
+
+            <!-- Buttons Equimpent -->
+            <div class="btn-submit col-span-12 flex justify-center mt-3">
+                 <button class="btn btn-primary" type="button" (click)="submitEquipmentReport()">
+                    {{ 'Equipments.Report_Equipment.AddBtnReportEquipments' | translate }}
+                </button>
+            </div>
+
+
+        </form>
+
+    </div>
+</section>

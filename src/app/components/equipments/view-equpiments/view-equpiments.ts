@@ -10,11 +10,10 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, RouterLink } from '@angular/router';
 import { IconInfoCircleComponent } from "../../../shared/icon/icon-info-circle";
 import { NgClass } from '@angular/common';
-import { NgxCustomModalComponent } from "ngx-custom-modal";
 
 @Component({
   selector: 'app-view-equpiments',
-  imports: [DataTableModule, FormsModule, TranslatePipe, IconPencilComponent, IconTrashLinesComponent, IconFileComponent, RouterLink, IconInfoCircleComponent, NgClass, NgxCustomModalComponent],
+  imports: [DataTableModule, FormsModule, TranslatePipe, IconPencilComponent, IconTrashLinesComponent, IconFileComponent, RouterLink, IconInfoCircleComponent, NgClass],
   templateUrl: './view-equpiments.html',
   styleUrl: './view-equpiments.css',
 })
@@ -22,7 +21,6 @@ export class ViewEqupiments implements OnInit{
     private readonly _EquipmentService = inject(EquipmentService)
     private readonly _ToastrService = inject(ToastrService)
     private readonly _TranslateService = inject(TranslateService)
-    private readonly _Router = inject(Router)
 
     search = '';
     allEquipments:any[] = []
@@ -42,25 +40,6 @@ export class ViewEqupiments implements OnInit{
         { field: 'action', title: 'Equipments.View_Equipments.ActionLabel', sort: false, headerClass: 'justify-center' },
     ];
 
-    colsDetails = [
-        // { field: 'id', title: 'ID', isUnique: true },
-        { field: 'userName', title: 'Equipments.View_Equipments.UserName' },
-        { field: 'hours', title: 'Equipments.View_Equipments.HoursLable' },
-        { field: 'gas', title: 'Equipments.View_Equipments.GasLabel' },
-        { field: 'kilometters', title: 'Equipments.View_Equipments.KiloMetters' },
-    ];
-
-
-    equipmentDetails:any[] = [
-        {
-            userName:'Saed',
-            hours:'8',
-            gas:'70',
-            kilometters:'48',
-        }
-    ]
-
-
     ngOnInit(): void {
         this.getAllEquipments()
         this.buildColumns();
@@ -71,11 +50,6 @@ export class ViewEqupiments implements OnInit{
 
     buildColumns(): void {
         this.translatedCols = this.cols.map(col => ({
-            ...col,
-            title: this._TranslateService.instant(col.title),
-        }));
-
-        this.translatedColsDetails = this.colsDetails.map(col => ({
             ...col,
             title: this._TranslateService.instant(col.title),
         }));

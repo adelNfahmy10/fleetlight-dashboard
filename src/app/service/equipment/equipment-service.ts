@@ -9,6 +9,7 @@ import { environment } from '../../../environments/environment';
 export class EquipmentService {
     private readonly _HttpClient = inject(HttpClient)
 
+    // ################################## Equipment ####################################
     getAllEquipments():Observable<any>{
         return this._HttpClient.get(`${environment.baseUrl}Equipment/GetAllEquipments`)
     }
@@ -25,6 +26,10 @@ export class EquipmentService {
         return this._HttpClient.put(`${environment.baseUrl}Equipment/UpdateEquipment`, data)
     }
 
+    reportEquipment(data:any):Observable<any>{
+        return this._HttpClient.put(`${environment.baseUrl}Equipment/UpdateEquipmentUsage`, data)
+    }
+
     deleteEquipment(id:any):Observable<any>{
         return this._HttpClient.delete(`${environment.baseUrl}Equipment/DeleteEquipment/${id}`)
     }
@@ -36,5 +41,23 @@ export class EquipmentService {
             }
         )
     }
+
+    // ################################## Equipment Maintenance Request ####################################
+    getReceivedByOwner():Observable<any>{
+        return this._HttpClient.get(`${environment.baseUrl}EquipmentMaintenanceRequest/ReceivedByOwner`)
+    }
+
+    getSentByMechanical():Observable<any>{
+        return this._HttpClient.get(`${environment.baseUrl}EquipmentMaintenanceRequest/SentByMechanical`)
+    }
+
+    CreateMaintenanceRequest(data:any):Observable<any>{
+        return this._HttpClient.post(`${environment.baseUrl}EquipmentMaintenanceRequest/Create`, data)
+    }
+
+    RespondMaintenanceRequest(data:any):Observable<any>{
+        return this._HttpClient.post(`${environment.baseUrl}EquipmentMaintenanceRequest/Respond`, data)
+    }
+
 
 }

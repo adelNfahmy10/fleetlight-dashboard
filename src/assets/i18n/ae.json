@@ -92,6 +92,54 @@
             "ActionLabel" : "الإجراء",
             "ShowPaginationInfo": "عرض السجلات",
             "closeBtn": "إغلاق"
+        },
+        "Report_Equipment":{
+            "titleReport" : "تقرير المعدة اليومي",
+            "UsageHoursLabel" : "الساعات المستخدمة",
+            "UsageHoursPlaceholder" : "أدخل عدد الساعات المستخدمة",
+            "FuelLitersLabel" : "الجاز المطلوب",
+            "FuelLitersPlaceholder" : "أدخل كمية الجاز المطلوبة للمعدة / الشاحنة",
+            "KilometersLabel" : "المسافة المستخدمة",
+            "KilometersPlaceholder" : "أدخل المسافة المستخدمة للمعدة / الشاحنة",
+            "AddBtnReportEquipments" : "إضافة التقرير"
+        },
+        "Details_Equipment":{
+            "titleDetails" : "عرض تفاصيل المعدة",
+            "MechanicalLabel" : "إسم الميكانيكي",
+            "equipmentTypeLabel" : "نوع الآلة (معدة - شاحنة)",
+            "KilometersLabel" : "المسافة المستخدمة",
+            "FuelLitersLabel" : "الجاز المطلوبة للمعدة / الشاحنة",
+            "UsageHoursLabel" : "الساعات المستخدمة",
+            "Hours" : "ساعات",
+            "Letters" : "لتر",
+            "KM" : "كم",
+
+
+            "TableRequestsTitle":"طلبات الصيانة",
+            "RequesterNameLabel" : "إسم صاحب الطلب",
+            "CreatedDateLabel" : "تاريخ الطلب",
+            "RequestTypeLabel" : "نوع الآلة (معدة - شاحنة)",
+            "EquipmentModelLabel" : "طراز الآلة",
+            "MaintenanceDescriptionLabel" : "سبب الطلب",
+            "MaintenanceResponseLabel" : "الرد على الطلب",
+            "StatusLabel" : "حالة الطلب",
+            "ActionLabel" : "إجراء رد"
+
+        },
+        "Maintenance_Request":{
+            "titleRequests" : " إضافة طلب صيانة",
+            "MaintenanceDetailsLabel" : "تفاصيل الطلب",
+            "MaintenanceDetailsPlaceholder" : "أدخل تفاصيل طلب الصيانة",
+            "RequestBtn":"إرسال الطلب",
+
+            "TableRequestTitle":"طلبات الصيانة",
+            "RequesterNameLabel" : "إسم صاحب الطلب",
+            "CreatedDateLabel" : "تاريخ الطلب",
+            "RequestTypeLabel" : "نوع الآلة (معدة - شاحنة)",
+            "EquipmentModelLabel" : "طراز الآلة",
+            "MaintenanceDescriptionLabel" : "سبب الطلب",
+            "StatusLabel" : "حالة الطلب",
+            "ActionLabel" : "التفاصيل"
         }
 
     },

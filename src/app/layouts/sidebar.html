@@ -172,8 +172,8 @@
                                 <button
                                     type="button"
                                     class="nav-link group w-full"
-                                    [ngClass]="{ active: activeDropdown.includes('invoice') }"
-                                    (click)="toggleAccordion('invoice')"
+                                    [ngClass]="{ active: activeDropdown.includes('equipment') }"
+                                    (click)="toggleAccordion('equipment')"
                                 >
                                     <div class="flex items-center">
                                         <i class="fa-solid fa-screwdriver-wrench shrink-0 group-hover:!text-primary transition"></i>
@@ -182,11 +182,11 @@
                                             {{ 'معداتي' | translate }}
                                         </span>
                                     </div>
-                                    <div [ngClass]="{ 'rtl:rotate-90 -rotate-90': !activeDropdown.includes('invoice') }">
+                                    <div [ngClass]="{ 'rtl:rotate-90 -rotate-90': !activeDropdown.includes('equipment') }">
                                         <icon-caret-down />
                                     </div>
                                 </button>
-                                <div [@slideDownUp]="!activeDropdown.includes('invoice')" class="accordion-content">
+                                <div [@slideDownUp]="!activeDropdown.includes('equipment')" class="accordion-content">
                                     <ul class="sub-menu text-gray-500">
                                         <li>
                                             <a routerLink="/view-equipment" routerLinkActive="active" (click)="toggleMobileMenu()">
@@ -198,13 +198,29 @@
                                                 >{{ 'إضافة المعدة' | translate }}</a
                                             >
                                         </li>
+                                        <li>
+                                            <a routerLink="/respond-maintenance-request" routerLinkActive="active" (click)="toggleMobileMenu()">
+                                                {{ 'طلبات الصيانة' | translate }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="/equipment-report" routerLinkActive="active" (click)="toggleMobileMenu()"
+                                                >{{ 'إضافة تقرير المعدة' | translate }}</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a routerLink="/request-maintenance" routerLinkActive="active" (click)="toggleMobileMenu()"
+                                                >{{ 'إرسال طلب صيانة' | translate }}</a
+                                            >
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
 
+
                             <!-- Logout Section -->
                             <li class="nav-item">
-                                <a class="group cr" (click)="logout()">
+                                <a class="group cursor-pointer" (click)="logout()">
                                     <div class="flex items-center">
                                         <icon-logout class="h-4.5 w-4.5 shrink-0 group-hover:!text-danger rotate-90 ltr:mr-2 rtl:ml-2 transition" />
                                         <span class="text-black transition group-hover:!text-danger dark:text-[#506690] dark:group-hover:text-white-dark ltr:pl-3 rtl:pr-3">
