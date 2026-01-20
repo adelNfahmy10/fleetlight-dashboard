@@ -42,7 +42,7 @@
             <div class="lg:col-span-9 col-span-12">
                 <form class="grid grid-cols-12 gap-3" [formGroup]="equpimentsForm" >
                     <!-- Switch Equipment Type -->
-                    <div class="equipment-Switch col-span-6">
+                    <div class="equipment-Switch md:col-span-6 col-span-12">
                         <label class="text-[16px]">{{ 'Equipments.Add_Equipments.EquipmentTypeLabel' | translate }}</label>
                         <ng-select
                             [items]="equipmentType"
@@ -56,7 +56,7 @@
                     </div>
 
                     <!-- Year Of ManuFacture Equimpent -->
-                    <div class="equipment-yearOfManufacture col-span-6">
+                    <div class="equipment-yearOfManufacture md:col-span-6 col-span-12">
                         <label class="text-[16px]">{{ 'Equipments.Add_Equipments.ManuFactureLabel' | translate }}</label>
                         <ng-select
                             [items]="years"
@@ -70,41 +70,41 @@
                     </div>
 
                     <!-- Chassis Number Equimpent -->
-                    <div class="equipment-chassisNumber col-span-6">
+                    <div class="equipment-chassisNumber md:col-span-6 col-span-12">
                         <label class="text-[16px]">{{ 'Equipments.Add_Equipments.ChassisNumberLabel' | translate }}</label>
                         <input formControlName="ChassisNumber" class="form-input" type="text" [placeholder]="'Equipments.Add_Equipments.ChassisNumberPlaceholder' | translate" />
                     </div>
 
                     <!-- Asset Number Equimpent -->
-                    <div class="equipment-assetNumber col-span-6">
+                    <div class="equipment-assetNumber md:col-span-6 col-span-12">
                         <label class="text-[16px]">{{ 'Equipments.Add_Equipments.AssetNumberLabel' | translate }}</label>
                         <input formControlName="AssetNumber" class="form-input" type="text" [placeholder]="'Equipments.Add_Equipments.AssetNumberPlaceholder' | translate "/>
                     </div>
 
                     <!-- Brand Equimpent -->
-                    <div class="equipment-brand col-span-6">
+                    <div class="equipment-brand md:col-span-6 col-span-12">
                         <label class="text-[16px]">{{ 'Equipments.Add_Equipments.BrandARLabel' | translate }}</label>
                         <input formControlName="BrandAr" class="form-input" type="text" [placeholder]="'Equipments.Add_Equipments.BrandARPlaceholder' | translate" />
                     </div>
 
-                    <div class="equipment-brand col-span-6">
+                    <div class="equipment-brand md:col-span-6 col-span-12">
                         <label class="text-[16px]">{{ 'Equipments.Add_Equipments.BrandENLabel' | translate }}</label>
                         <input formControlName="BrandEn" class="form-input" type="text" [placeholder]="'Equipments.Add_Equipments.BrandENPlaceholder' | translate" />
                     </div>
 
                     <!-- Model Equimpent -->
-                    <div class="equipment-model col-span-6">
+                    <div class="equipment-model md:col-span-6 col-span-12">
                         <label class="text-[16px]">{{ 'Equipments.Add_Equipments.ModelARLabel' | translate }}</label>
                         <input formControlName="ModelAr" class="form-input" type="text" [placeholder]="'Equipments.Add_Equipments.ModelARPlaceholder' | translate" />
                     </div>
 
-                    <div class="equipment-model col-span-6">
+                    <div class="equipment-model md:col-span-6 col-span-12">
                         <label class="text-[16px]">{{ 'Equipments.Add_Equipments.ModelENLabel' | translate }}</label>
                         <input formControlName="ModelEn" class="form-input" type="text" [placeholder]="'Equipments.Add_Equipments.ModelENPlaceholder' | translate" />
                     </div>
 
                     <!-- ForSale Equipments -->
-                    <div class="equipment-forSale col-span-6">
+                    <div class="equipment-forSale md:col-span-6 col-span-12">
                         <div class="flex items-center gap-2">
                             <span>{{'Equipments.Add_Equipments.ForSaleLabel' | translate}}</span>
 
@@ -127,7 +127,7 @@
                     </div>
 
                     <!-- ForRent Equipments -->
-                    <div class="equipment-forSale col-span-6">
+                    <div class="equipment-forSale md:col-span-6 col-span-12">
                         <div class="flex items-center gap-2">
                             <span>{{'Equipments.Add_Equipments.ForRentLabel' | translate}}</span>
 
