@@ -1,0 +1,19 @@
+.head-section {
+    h2{
+        font-size: 30px;
+    }
+}
+:host ::ng-deep ng-datatable td, :host ::ng-deep ng-datatable th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+
+:host ::ng-deep ng-datatable td > div, :host ::ng-deep ng-datatable th > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+   background-color: white !important;
+}

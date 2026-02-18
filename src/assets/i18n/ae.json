@@ -39,7 +39,7 @@
         "SignIn":"تسجيل الدخول"
     },
 
-    "Equipments" : {
+    "Equipments": {
         "Add_Equipments":{
             "titleUpdate" : "تعديل المعدة",
             "titleAdd" : "إضافة معدة جديدة",
@@ -117,6 +117,7 @@
 
             "TableRequestsTitle":"طلبات الصيانة",
             "RequesterNameLabel" : "إسم صاحب الطلب",
+            "MechanicalNameLabel" : "إسم الميكانيكي",
             "CreatedDateLabel" : "تاريخ الطلب",
             "RequestTypeLabel" : "نوع الآلة (معدة - شاحنة)",
             "EquipmentModelLabel" : "طراز الآلة",
@@ -134,16 +135,138 @@
 
             "TableRequestTitle":"طلبات الصيانة",
             "RequesterNameLabel" : "إسم صاحب الطلب",
+            "MechanicalNameLabel" : "إسم الميكانيكي",
             "CreatedDateLabel" : "تاريخ الطلب",
             "RequestTypeLabel" : "نوع الآلة (معدة - شاحنة)",
             "EquipmentModelLabel" : "طراز الآلة",
             "MaintenanceDescriptionLabel" : "سبب الطلب",
             "StatusLabel" : "حالة الطلب",
             "ActionLabel" : "التفاصيل"
-        }
+        },
+        "Add_Employee":{
+            "titleAdd" : "إضافة موظف جديدة",
 
+            "FullNameLable":"الأســـم",
+            "FullNamePlaceholder":"أدخل الأسم بالكامل",
+
+            "UserEmailLabel":"البريد الإلكتروني",
+            "UserEmailPlaceholder":"أدخل البريد الإلكتروني",
+
+            "PhoneLabel":"التليفون",
+            "PhonePlaceholder":"أدخل رقم التليفون",
+
+            "RoleLabel":"الصلاحية",
+            "RolePlaceholder":"أدخل الصلاحية",
+
+            "UserNameLabel":"إسم السمتخدم",
+            "UserNamePlaceholder":"أدخل إسم المستخدم",
+
+            "PasswordLabel":"كلمة المرور",
+            "PasswordPlaceholder":"أدخل كلمة المرور",
+
+            "BtnAdd": "إضافة الموظف"
+        }
     },
 
+    "Suppliers":{
+        "Add_Product":{
+            "titleUpdate" : "تعديل المنتج",
+            "titleAdd" : "إضافة منتج جديد",
+
+            "ImageSaprePartLabel" : "إختر صورة المنتج",
+            "ImageFileMsg" : "أختر صورة للمنتج",
+
+            "SparePartTypeLabel" : "نوع الإدخال (اصلي / تجاري)",
+            "SparePartTypePlaceholder" : "نوع الإدخال",
+            "SpareParts": {
+                "Original": "أصلي",
+                "Commercial": "تجاري"
+            },
+
+            "partNumberLabel" : "رقم القطعة",
+            "partNumberPlaceholder" : "أدخل رقم القطعة",
+
+            "NameARLabel" : "إسم المنتج بالعربية",
+            "NameARPlaceholder" : "أدخل إسم المنتج بالعربية",
+            "NameENLabel" : "إسم المنتج بالإنجليزية",
+            "NameENPlaceholder" : "أدخل إسم المنتج بالإنجليزية",
+
+            "YearOfManuFactureLabel" : "سنة الصنع",
+            "YearOfManuFacturePlaceholder" : "أدخل سنة الصنع",
+
+            "ManuFactureLabel" : "الشركة المصنعة",
+            "ManuFacturePlaceholder" : "أدخل الشركة المصنعة",
+
+            "BrandARLabel" : "العلامة التجارية بالعربية",
+            "BrandARPlaceholder" : "أدخل العلامة التجارية بالعربية",
+            "BrandENLabel" : "العلامة التجارية بالإنجليزية",
+            "BrandENPlaceholder" : "أدخل العلامة التجارية بالإنجليزية",
+
+            "AssetNumberLabel" : "رقم الأصل",
+            "AssetNumberPlaceholder" : "أدخل رقم الأصل",
+
+            "PriceLabel" : "سعر المنتج",
+            "PricePlaceholder" : "أدخل سعر المنتج",
+
+            "UpdateBtn" : "تعديل المنتج",
+            "AddBtn" : "إضافة المنتج"
+        },
+
+        "View_Product":{
+            "TiteView":"عرض المنتجات",
+            "DownloadBtnExcel":"تحميل Excle",
+            "SearchPlaceholder": "البحث...",
+            "imageLabel" : "صورة المنتج",
+
+            "NameLabel" : "إسم المنتج",
+            "TypeLabel" : "النوع",
+            "BrandLabel" : "العلامة التجارية",
+            "partNumberLabel" : "رقم القطعة",
+            "yearOfManufactureLabel" : "سنة الصنع",
+            "ManuFactureLabel" : "الشركة المصنعة",
+            "AssetNumberLabel" : "رقم الأصل",
+            "PriceLable" : "السعر",
+            "Currency" : "ريال",
+            "ActionLabel" : "الإجراء",
+            "closeBtn": "إغلاق",
+            "ShowPaginationInfo": "عرض السجل    ات"
+        }
+    },
+
+    "Shopping":{
+        "title" : "المنتجات",
+        "Currency" : "ريال",
+        "OfferPriceTitle" : "إرسال عرض سعر للمنتج",
+        "OfferPriceLabel" : "السعر الطلوب",
+        "OfferPricePlaceholder" : "أدخل السعر المطلوب",
+        "NotesLabel" : "التفاصيل",
+        "NotesPlaceholder" : "أدخل التفاصيل"
+    },
+    "View_OFFER_PRICE":{
+        "title" : "طلبات عرض السعر",
+        "SearchPlaceholder" : "البحث...",
+
+        "RequestDate": "تاريخ الطلب",
+        "SparePartName": "إسم المنتج",
+        "RequesterName": "إسم صاحب الطلب",
+        "SupplierName": "المورد",
+        "SystemPrice": "السعر الأصلي",
+        "RequesterPrice": "السعر المطلوب",
+        "FinalPrice": "السعر النهائي",
+        "StatusRequest": "حالة الطلب",
+        "ShowPaginationInfo": "عرض السجلات",
+        "Currency": "ريال",
+
+
+
+        "FinalPricePlaceholder": "أدخل السعر النهائي",
+        "OfferPriceNoteLabel": "التفاصيل",
+        "OfferPriceNotePlaceholder": "أدخل التفاصيل",
+        "BtnSend": "إرسال",
+        "BtnClose": "إلغاء"
+
+
+    },
 
 
 

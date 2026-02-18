@@ -1,0 +1,64 @@
+<section class="add-equipment">
+    <div class="panel p-6">
+        <div class="head-section">
+            <h2 class="font-bold">{{'Equipments.Add_Employee.titleAdd' | translate }}</h2>
+        </div>
+
+         <div class="employee-form">
+            <form class="grid grid-cols-12 gap-3" [formGroup]="employeeForm" >
+                <!-- Switch Equipment Type -->
+                <div class="equipment-Switch md:col-span-6 col-span-12">
+                    <label class="text-[16px]">{{ 'Equipments.Add_Employee.RoleLabel' | translate }}</label>
+                    <ng-select
+                        [items]="allRoles"
+                        bindLabel="name"
+                        bindValue="id"
+                        formControlName="roleIds"
+                        [clearable]="false"
+                        [searchable]="true"
+                        [placeholder]="'Equipments.Add_Employee.RolePlaceholder' | translate"
+                        class="custom-multiselect"
+                    >
+                    </ng-select>
+                </div>
+
+                <!-- Name -->
+                <div class="emplyee-name md:col-span-6 col-span-12">
+                    <label class="text-[16px]">{{ 'Equipments.Add_Employee.FullNameLable' | translate }}</label>
+                    <input formControlName="fullName" class="form-input" type="text" [placeholder]="'Equipments.Add_Employee.FullNamePlaceholder' | translate" />
+                </div>
+
+                <!-- Email -->
+                <div class="emplyee-email md:col-span-6 col-span-12">
+                    <label class="text-[16px]">{{ 'Equipments.Add_Employee.UserEmailLabel' | translate }}</label>
+                    <input formControlName="email" class="form-input" type="email" [placeholder]="'Equipments.Add_Employee.UserEmailPlaceholder' | translate "/>
+                </div>
+
+                <!-- Mobile -->
+                <div class="emplyee-mobile md:col-span-6 col-span-12">
+                    <label class="text-[16px]">{{ 'Equipments.Add_Employee.PhoneLabel' | translate }}</label>
+                    <input formControlName="mobile" class="form-input" type="tel" [placeholder]="'Equipments.Add_Employee.PhonePlaceholder' | translate" />
+                </div>
+
+                <!-- UserName -->
+                <div class="emplyee-userName md:col-span-6 col-span-12">
+                    <label class="text-[16px]">{{ 'Equipments.Add_Employee.UserNameLabel' | translate }}</label>
+                    <input formControlName="username" class="form-input" type="text" [placeholder]="'Equipments.Add_Employee.UserNamePlaceholder' | translate" />
+                </div>
+
+                <!-- Password -->
+                <div class="emplyee-password md:col-span-6 col-span-12">
+                    <label class="text-[16px]">{{ 'Equipments.Add_Employee.PasswordLabel' | translate }}</label>
+                    <input formControlName="password" class="form-input" type="password" [placeholder]="'Equipments.Add_Employee.PasswordPlaceholder' | translate" />
+                </div>
+
+                <!-- Buttons Equimpent -->
+                <div class="btn-submit col-span-12 flex justify-center mt-3">
+                    <button class="btn btn-primary" type="button" (click)="sumbitEmployeeForm()">
+                        {{ 'Equipments.Add_Employee.BtnAdd' | translate }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -45,9 +45,13 @@
 
                     <ng-template slot="action" let-value="data">
                         @if(!value.maintenanceResponse){
-                            <button type="button" class="text-secondary" ngxTippy="Details" (click)="getRequestData(value.id)">
-                                <icon-info-circle />
-                            </button>
+                            @if(role == 'Mechanical'){
+                                <button type="button" class="text-secondary" ngxTippy="Details" (click)="getRequestData(value.id)">
+                                    <icon-info-circle />
+                                </button>
+                            } @else {
+                                <span>-</span>
+                            }
                         } @else {
                             <div class="flex items-center">
                                 <icon-checks class="h-6 w-6 text-success font-bold" />

@@ -33,6 +33,8 @@ import { IconMenuDocumentationComponent } from '../shared/icon/menu/icon-menu-do
 import { IconLogoutComponent } from "../shared/icon/icon-logout";
 import { AuthService } from '../service/auth/auth-service';
 import { ToastrService } from 'ngx-toastr';
+import { IconSettingsComponent } from "../shared/icon/icon-settings";
+import { IconShoppingCartComponent } from "../shared/icon/icon-shopping-cart";
 
 @Component({
     selector: 'sidebar',
@@ -47,7 +49,10 @@ import { ToastrService } from 'ngx-toastr';
     IconCaretDownComponent,
     IconMinusComponent,
     IconLogoutComponent,
-    IconMenuInvoiceComponent
+    IconMenuInvoiceComponent,
+    IconMenuCalendarComponent,
+    IconSettingsComponent,
+    IconShoppingCartComponent
 ],
     animations: [slideDownUp],
 })
@@ -55,6 +60,8 @@ export class SidebarComponent {
     private readonly _AuthService = inject(AuthService)
     private readonly _ToastrService = inject(ToastrService)
 
+
+    role:string | null = localStorage.getItem('role')
     active = false;
     store: any;
     activeDropdown: string[] = [];

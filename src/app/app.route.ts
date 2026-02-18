@@ -30,13 +30,24 @@ export const routes: Routes = [
         component: AppLayout,
         canActivate:[authGuard],
         children: [
+            // Equipment Owners
             { path: 'add-equpiment', loadComponent: () => import('./components/equipments/add-equipment/add-equipment').then((d) => d.AddEquipment), data: { title: 'Add Equipment' } },
-            { path: 'update-equpiment/:id', loadComponent: () => import('./components/equipments/add-equipment/add-equipment').then((d) => d.AddEquipment), data: { title: 'Add Equipment' } },
-            { path: 'view-equipment', loadComponent: () => import('./components/equipments/view-equpiments/view-equpiments').then((d) => d.ViewEqupiments), data: { title: 'Add Equipment' } },
-            { path: 'equipment-report', loadComponent: () => import('./components/equipments/equipment-report/equipment-report').then((d) => d.EquipmentReport), data: { title: 'Add Equipment Report' } },
+            { path: 'update-equpiment/:id', loadComponent: () => import('./components/equipments/add-equipment/add-equipment').then((d) => d.AddEquipment), data: { title: 'Update Equipment' } },
+            { path: 'view-equipment', loadComponent: () => import('./components/equipments/view-equpiments/view-equpiments').then((d) => d.ViewEqupiments), data: { title: 'View Equipment' } },
+            { path: 'equipment-report', loadComponent: () => import('./components/driver/equipment-report/equipment-report').then((d) => d.EquipmentReport), data: { title: 'Add Equipment Report' } },
             { path: 'equipment-details/:id', loadComponent: () => import('./components/equipments/equipment-details/equipment-details').then((d) => d.EquipmentDetails), data: { title: 'Equipment Details' } },
-            { path: 'request-maintenance', loadComponent: () => import('./components/equipments/maintenance-requests/maintenance-requests').then((d) => d.MaintenanceRequests), data: { title: 'Requests Maintenance' } },
-            { path: 'respond-maintenance-request', loadComponent: () => import('./components/equipments/respond-maintenance-requests/respond-maintenance-requests').then((d) => d.RespondMaintenanceRequests), data: { title: 'Responds Maintenance' } },
+            { path: 'add-maintenance-request', loadComponent: () => import('./components/driver/add-maintenance-request/add-maintenance-request').then((d) => d.AddMaintenanceRequest), data: { title: 'Requests Maintenance' } },
+            { path: 'maintenance-request', loadComponent: () => import('./components/mechanical/maintenance-requests/maintenance-requests').then((d) => d.MaintenanceRequests), data: { title: 'All Maintenance Requests' } },
+            { path: 'add-employee', loadComponent: () => import('./components/equipments/add-employee/add-employee').then((d) => d.AddEmployee), data: { title: 'Add Employee' } },
+
+            // Suppliers
+            { path: 'add-product', loadComponent: () => import('./components/suppliers/add-product/add-product').then((d) => d.AddProduct), data: { title: 'Add Product' } },
+            { path: 'update-product/:id', loadComponent: () => import('./components/suppliers/add-product/add-product').then((d) => d.AddProduct), data: { title: 'Update Product' } },
+            { path: 'view-product', loadComponent: () => import('./components/suppliers/view-product/view-product').then((d) => d.ViewProduct), data: { title: 'View Product' } },
+
+            // Shopping
+            { path: 'shopping', loadComponent: () => import('./components/shopping/shopping/shopping').then((d) => d.Shopping), data: { title: 'Shopping' } },
+            { path: 'offer-price', loadComponent: () => import('./components/shopping/view-offer-price/view-offer-price').then((d) => d.ViewOfferPrice), data: { title: 'Shopping' } },
 
 
             // dashboard

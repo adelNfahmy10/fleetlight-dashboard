@@ -8,13 +8,13 @@ import { DataTableModule } from '@bhplugin/ng-datatable';
 import { DatePipe, NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-maintenance-requests',
-imports: [TranslatePipe, ReactiveFormsModule, NgSelectComponent, DataTableModule, NgClass, DatePipe],
-  templateUrl: './maintenance-requests.html',
-  styleUrl: './maintenance-requests.css',
+  selector: 'app-add-maintenance-request',
+  imports: [TranslatePipe, ReactiveFormsModule, NgSelectComponent, DataTableModule, NgClass, DatePipe],
+  templateUrl: './add-maintenance-request.html',
+  styleUrl: './add-maintenance-request.css',
 })
-export class MaintenanceRequests {
-    private readonly _FormBuilder = inject(FormBuilder)
+export class AddMaintenanceRequest {
+private readonly _FormBuilder = inject(FormBuilder)
     private readonly _EquipmentService = inject(EquipmentService)
     private readonly _ToastrService = inject(ToastrService)
     private readonly _TranslateService = inject(TranslateService)
@@ -22,6 +22,11 @@ export class MaintenanceRequests {
     allEquipments:any[] = []
     allRequests:any[] = []
     translatedCols: any[] = [];
+    priority:any[] = [
+        'Routine',
+        'Critical'
+    ]
+
     search = '';
 
     cols = [
@@ -44,7 +49,6 @@ export class MaintenanceRequests {
         });
     }
 
-
     buildColumns(): void {
         this.translatedCols = this.cols.map(col => ({
             ...col,
@@ -61,7 +65,7 @@ export class MaintenanceRequests {
     }
 
     getAllRequests():void{
-        this._EquipmentService.getSentByMechanical().subscribe({
+        this._EquipmentService.GetMyMaintenanceRequests().subscribe({
             next:(res)=>{
                 this.allRequests = res.data
                 console.log(this.allRequests);
@@ -72,11 +76,11 @@ export class MaintenanceRequests {
     maintenanceRequestForm:FormGroup = this._FormBuilder.group({
         equipmentId:[''],
         maintenanceDescription:[''],
+        priority:['']
     })
 
     submitRequest():void{
         let data = this.maintenanceRequestForm.value
-
         this._EquipmentService.CreateMaintenanceRequest(data).subscribe({
             next:(res)=>{
                 this._ToastrService.success(res.msg)
@@ -86,5 +90,3 @@ export class MaintenanceRequests {
         })
     }
 }
-
-

@@ -1,0 +1,126 @@
+<section class="view-offer-price">
+    <div class="panel p-6">
+        <div class="head-section mb-5 flex flex-col gap-5 md:flex-row md:items-center">
+            <h2 class="text-[50px] font-semibold dark:text-white-light">{{'View_OFFER_PRICE.title' | translate}}</h2>
+            <div class="ltr:ml-auto rtl:mr-auto sm:justify-start flex flex-wrap lg:justify-center items-center gap-3">
+                <input [(ngModel)]="search" type="text" class="form-input w-auto" [placeholder]="'View_OFFER_PRICE.SearchPlaceholder' | translate" />
+            </div>
+        </div>
+
+        <div class="datatable text-center">
+            <ng-datatable
+                class="text-center"
+                [rows]="allOfferPrice"
+                [columns]="translatedCols"
+                [search]="search"
+                [sortable]="true"
+                [paginationInfo]="'View_OFFER_PRICE.ShowPaginationInfo' | translate"
+                skin="whitespace-nowrap table-hover"
+                firstArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M13 19L7 12L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M16.9998 19L10.9998 12L16.9998 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+                lastArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M11 19L17 12L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M6.99976 19L12.9998 12L6.99976 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg> '
+                previousArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M15 5L9 12L15 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+                nextArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M9 5L15 12L9 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+            >
+                <ng-template slot="createdDate" let-value="data">
+                    <div class="flex items-center gap-2">
+                        <p>{{ value.createdDate | date:'dd/MM/yyyy' }}</p>
+                    </div>
+                </ng-template>
+
+                <ng-template slot="systemPrice" let-value="data">
+                    <div class="flex items-center gap-2">
+                        <p>{{ value.systemPrice | number }} {{'View_OFFER_PRICE.Currency' | translate}}</p>
+                    </div>
+                </ng-template>
+
+                <ng-template slot="finalPrice" let-value="data">
+                    <div class="flex items-center gap-2">
+                        <p>{{ value.finalPrice ? value.finalPrice : '-' }} {{value.finalPrice ? ('View_OFFER_PRICE.Currency'  | translate ): ''}}</p>
+                    </div>
+                </ng-template>
+
+
+                <ng-template slot="status" let-value="data">
+                    @if(role == 'Equipment owner'){
+                        <div class="flex items-center justify-center gap-1">
+                            <span
+                                class="w-20 py-1 text-[12px] rounded-md font-semibold text-center inline-block"
+                                [ngClass]="{
+                                    'text-green-600 bg-green-200': value.status === 'Responded',
+                                    'text-yellow-600 bg-yellow-200': value.status === 'Pending',
+                                    'text-red-600 bg-red-200': value.status === 'Rejected'
+                                }"
+                                >
+                                {{ value.status }}
+                            </span>
+                        </div>
+                    }
+
+                    @if(role == 'Supplier' || value.status != 'Pending'){
+                        @if(!value.finalPrice){
+                            <div class="flex justify-center items-center gap-2">
+                                <button type="button" class="text-secondary" ngxTippy="Success">
+                                    <icon-checks class="h-6 w-6 text-success font-bold" />
+                                </button>
+
+                                <button type="button" class="text-danger" ngxTippy="Reject" >
+                                <icon-x-circle class="h-6 w-6" />
+                                </button>
+
+                                <button type="button" class="text-secondary" ngxTippy="Details" (click)="getRequestData(value.id)">
+                                    <icon-info-circle class="h-6 w-6" />
+                                </button>
+                            </div>
+                        } @else if(value.finalPrice && role == 'Supplier' ){
+                            <div class="flex items-center justify-center gap-1">
+                                <span
+                                    class="w-20 py-1 text-[12px] rounded-md font-semibold text-center inline-block"
+                                    [ngClass]="{
+                                        'text-green-600 bg-green-200': value.status === 'Responded',
+                                        'text-yellow-600 bg-yellow-200': value.status === 'Pending',
+                                        'text-red-600 bg-red-200': value.status === 'Rejected'
+                                    }"
+                                    >
+                                    {{ value.status }}
+                                </span>
+                            </div>
+                        }
+
+                    }
+
+                </ng-template>
+            </ng-datatable>
+        </div>
+
+         @if(offerId){
+            <div class="p-5 shadow-md rounded-md mt-3">
+                <h5 class="text-[20px] font-semibold">{{'الرد على الطلب'}}</h5>
+                <form class="grid grid-cols-12 gap-3 mt-5" [formGroup]="respondForm" >
+
+                    <!-- Final Price -->
+                    <div class="final-price col-span-12">
+                        <label class="text-[16px]">{{ 'View_OFFER_PRICE.FinalPrice' | translate }}</label>
+                        <input formControlName="finalPrice" class="form-input" type="number" name="final-price" id="final-price" [placeholder]="'View_OFFER_PRICE.FinalPricePlaceholder' | translate" >
+                    </div>
+
+                    <!-- Notes -->
+                    <div class="offerPrice-note col-span-12">
+                        <label class="text-[16px]">{{ 'View_OFFER_PRICE.OfferPriceNoteLabel' | translate }}</label>
+                        <textarea formControlName="notes" class="form-input" name="OfferPriceNotePlaceholder" id="OfferPriceNotePlaceholder" [placeholder]="'View_OFFER_PRICE.OfferPriceNotePlaceholder' | translate" ></textarea>
+                    </div>
+
+                    <!-- Buttons Equimpent -->
+                    <div class="btn-submit col-span-12 flex justify-center gap-4 mt-3">
+                        <button class="btn btn-outline-danger" (click)="offerId = null">
+                            {{ 'View_OFFER_PRICE.BtnClose' | translate }}
+                        </button>
+
+                        <button class="btn btn-primary" type="button" (click)="submitRespond()">
+                            {{ 'View_OFFER_PRICE.BtnSend' | translate }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        }
+    </div>
+</section>

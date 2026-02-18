@@ -1,0 +1,137 @@
+<section class="add-equipment">
+    <div class="panel p-6">
+        <div class="head-section">
+            @if(sparePartId){
+                <h2 class="font-bold">{{'Suppliers.Add_Product.titleUpdate' | translate }}</h2>
+            } @else {
+                <h2 class="font-bold">{{'Equipments.Add_Equipments.titleAdd' | translate }}</h2>
+            }
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+            <div class="lg:col-span-3 col-span-12">
+                <!-- Image Spare Part -->
+                <div class="sparePart-image">
+                    <label class="text-[16px]">
+                    {{ 'Suppliers.Add_Product.ImageSaprePartLabel' | translate }}
+                    </label>
+
+                    <input
+                        #fileInput
+                        type="file"
+                        class="form-input"
+                        accept="image/*"
+                        (change)="onImageSelected($event)"
+                    />
+                </div>
+
+                @if(imagePreview){
+                    <div class="view-image text-center mt-3">
+                        <img
+                        [src]="imagePreview"
+                        alt="Sapre Part Image"
+                        class="w-100 object-contain rounded"
+                        />
+                    </div>
+                } @else {
+                    <h6 class="text-center mt-5 pt-5">{{'Suppliers.Add_Product.ImageFileMsg' | translate}}</h6>
+                }
+
+            </div>
+
+            <div class="lg:col-span-9 col-span-12">
+                <form class="grid grid-cols-12 gap-3" [formGroup]="sparePartsForm" >
+                    <!-- Switch Spare Part Type -->
+                    <div class="sparePart-Switch md:col-span-6 col-span-12">
+                        <label class="text-[16px]">{{ 'Suppliers.Add_Product.SparePartTypeLabel' | translate }}</label>
+                        <ng-select
+                            [items]="sparePartTypes"
+                            formControlName="Type"
+                            [clearable]="false"
+                            [searchable]="true"
+                            [placeholder]="'Suppliers.Add_Product.SparePartTypePlaceholder' | translate"
+                            class="custom-multiselect"
+                        >
+                        </ng-select>
+                    </div>
+
+                    <!-- Part Number SparePart -->
+                    <div class="sparePart-partNumber md:col-span-6 col-span-12">
+                        <label class="text-[16px]">{{ 'Suppliers.Add_Product.partNumberLabel' | translate }}</label>
+                        <input formControlName="PartNumber" class="form-input" type="text" [placeholder]="'Suppliers.Add_Product.partNumberPlaceholder' | translate "/>
+                    </div>
+
+                    <!-- Year Of ManuFacture Spare Part -->
+                    <div class="sparePart-yearOfManufacture md:col-span-6 col-span-12">
+                        <label class="text-[16px]">{{ 'Suppliers.Add_Product.YearOfManuFactureLabel' | translate }}</label>
+                        <ng-select
+                            [items]="years"
+                            formControlName="YearOfManufacture"
+                            [clearable]="false"
+                            [searchable]="true"
+                            [placeholder]="'Suppliers.Add_Product.YearOfManuFacturePlaceholder' | translate"
+                            class="custom-multiselect"
+                        >
+                        </ng-select>
+                    </div>
+
+                    <!-- Manufacturer -->
+                    <div class="manufacturer md:col-span-6 col-span-12">
+                        <label class="text-[16px]">{{ 'Suppliers.Add_Product.ManuFactureLabel' | translate }}</label>
+                        <input formControlName="Manufacturer" class="form-input" type="text" [placeholder]="'Suppliers.Add_Product.ManuFacturePlaceholder' | translate" />
+                    </div>
+
+                    <!-- Spare Part Name -->
+                    <div class="sparePartName md:col-span-6 col-span-12">
+                        <label class="text-[16px]">{{ 'Suppliers.Add_Product.NameARLabel' | translate }}</label>
+                        <input formControlName="NameAr" class="form-input" type="text" [placeholder]="'Suppliers.Add_Product.NameARPlaceholder' | translate" />
+                    </div>
+
+                    <div class="sparePartName md:col-span-6 col-span-12">
+                        <label class="text-[16px]">{{ 'Suppliers.Add_Product.NameENLabel' | translate }}</label>
+                        <input formControlName="NameEn" class="form-input" type="text" [placeholder]="'Suppliers.Add_Product.NameENPlaceholder' | translate" />
+                    </div>
+
+                    <!-- Brand Spare Part -->
+                    <div class="equipment-brand md:col-span-6 col-span-12">
+                        <label class="text-[16px]">{{ 'Suppliers.Add_Product.BrandARLabel' | translate }}</label>
+                        <input formControlName="BrandAr" class="form-input" type="text" [placeholder]="'Suppliers.Add_Product.BrandARPlaceholder' | translate" />
+                    </div>
+
+                    <div class="equipment-brand md:col-span-6 col-span-12">
+                        <label class="text-[16px]">{{ 'Suppliers.Add_Product.BrandENLabel' | translate }}</label>
+                        <input formControlName="BrandEn" class="form-input" type="text" [placeholder]="'Suppliers.Add_Product.BrandENPlaceholder' | translate" />
+                    </div>
+
+                    <!-- AssetNumber Spare Part -->
+                    <div class="equipment-assetNumber md:col-span-6 col-span-12">
+                        <label class="text-[16px]">{{ 'Suppliers.Add_Product.AssetNumberLabel' | translate }}</label>
+                        <input formControlName="AssetNumber" class="form-input" type="text" [placeholder]="'Suppliers.Add_Product.AssetNumberPlaceholder' | translate "/>
+                    </div>
+
+                     <!-- Price Spare Part -->
+                    <div class="equipment-assetNumber md:col-span-6 col-span-12">
+                        <label class="text-[16px]">{{ 'Suppliers.Add_Product.PriceLabel' | translate }}</label>
+                        <input formControlName="Price" class="form-input" type="number" min="0" [placeholder]="'Suppliers.Add_Product.PricePlaceholder' | translate "/>
+                    </div>
+
+
+                    <!-- Buttons Equimpent -->
+                    <div class="btn-submit col-span-12 flex justify-center mt-3">
+                        @if(sparePartId){
+                            <button class="btn btn-success" type="button" (click)="updateSparePart()">
+                                {{ 'Suppliers.Add_Product.UpdateBtn' | translate }}
+                            </button>
+                        } @else {
+                            <button class="btn btn-primary" type="button" (click)="submitSparePartsForm()">
+                                {{ 'Suppliers.Add_Product.AddBtn' | translate }}
+                            </button>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</section>

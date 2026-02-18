@@ -43,12 +43,14 @@ export class EquipmentService {
     }
 
     // ################################## Equipment Maintenance Request ####################################
-    getReceivedByOwner():Observable<any>{
-        return this._HttpClient.get(`${environment.baseUrl}EquipmentMaintenanceRequest/ReceivedByOwner`)
+    // Mechanical
+    GetMyMaintenanceRequests():Observable<any>{
+        return this._HttpClient.get(`${environment.baseUrl}EquipmentMaintenanceRequest/GetMyMaintenanceRequests`)
     }
 
-    getSentByMechanical():Observable<any>{
-        return this._HttpClient.get(`${environment.baseUrl}EquipmentMaintenanceRequest/SentByMechanical`)
+    // Equipment Owner
+    GetFleetMaintenanceMonitoring():Observable<any>{
+        return this._HttpClient.get(`${environment.baseUrl}EquipmentMaintenanceRequest/GetFleetMaintenanceMonitoring`)
     }
 
     CreateMaintenanceRequest(data:any):Observable<any>{

@@ -1,0 +1,94 @@
+<section class="shopping" id="shopping">
+    <div class="panel">
+        <div class="head-section">
+            <h2 class="font-bold">{{'Shopping.title' | translate}}</h2>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+            @for (item of allSpareParts; track $index) {
+                <div class="col-span-12 md:col-span-6 lg:col-span-4 position-relative">
+                    <div class="mb-5 flex items-center justify-center">
+                        <div class="w-full max-w-[22rem] rounded border border-[#e0e6ed] bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none" >
+                            <div class="px-6 py-7">
+                                <div class="-mx-6 -mt-7 mb-7 h-[260px] overflow-hidden rounded-tl rounded-tr">
+                                    <img loading="lazy" [src]="item.imagePath" [alt]="item.name" class="h-full w-full object-cover" />
+                                </div>
+                                <span class="mb-1.5 text-xs font-bold text-white bg-primary px-5 py-1 rounded-md">{{item.typeAr}}</span>
+                                <h5 class="mt-4 mb-3 text-[20px] font-bold text-[#3b3f5c] dark:text-white-light">{{item.nameAr}}</h5>
+                                <div class="flex flex-col gap-1">
+                                    <p>العلامة التجارية : {{item.brandAr}}</p>
+                                    <p>رقم القطعة : {{item.partNumber}}</p>
+                                    <p>رقم الأصل : {{item.assetNumber}}</p>
+                                    <p>الشركة المصنعة : {{item.manufacturer}}</p>
+                                    <p>سنة الصنع : {{item.yearOfManufacture}}</p>
+                                </div>
+                                <div class="flex items-center justify-between font-bold text-[20px] mt-3 w-full">
+                                  <p>
+                                    السعر :
+                                    <span class="text-primary">
+                                        {{item.price | number}} {{'Shopping.Currency' | translate}}
+                                    </span>
+                                  </p>
+
+
+                                    <!-- Spin Quantity -->
+                                    <div class="flex items-center border rounded-lg overflow-hidden">
+
+                                        <button class="px-3 py-1 bg-blue-100 hover:bg-blue-200 transition" (click)="increaseQty()" >
+                                        +
+                                        </button>
+
+                                        <span class="px-4 py-1">{{ qty }}</span>
+
+                                        <button class="px-3 py-1 bg-blue-100 hover:bg-blue-200 transition" (click)="decreaseQty()" >
+                                        -
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                                <div class="relative mt-3 flex justify-between pt-4 before:absolute before:inset-x-0 before:top-0 before:mx-auto before:h-[1px] before:w-[250px] before:bg-[#e0e6ed] dark:before:bg-[#1b2e4b]" >
+                                    <div class="flex items-center gap-2 font-semibold">
+                                        <button class="btn btn-primary w-24" (click)="submitOrderForm(item.id)">
+                                            شراء
+                                        </button>
+                                        <button class="btn btn-outline-dark w-24" (click)="openModal(item.id)">
+                                            عرض سعر
+                                        </button>
+                                        <!-- <div class="inline-block w-20 cursor-pointer shrink-0 overflow-hidden rounded-full ltr:mr-2 rtl:ml-2.5">
+                                            <span class="flex py-2 text-[16px] items-center justify-center bg-primary text-[#e0e6ed]">شراء</span>
+                                        </div>
+                                         <div class="inline-block w-20 cursor-pointer shrink-0 overflow-hidden rounded-full ltr:mr-2 rtl:ml-2.5">
+                                            <span (click)="modal.open()" class="flex py-2 text-[16px] items-center justify-center hover:bg-[#515365] border border-[#515365] text-[#e0e6ed]">عرض سعر</span>
+                                        </div> -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<ngx-custom-modal #modal [centered]="true">
+    <ng-template #modalBody>
+        <div class="text-white text-[22px] mb-4">{{'Shopping.OfferPriceTitle' | translate}}</div>
+        <div class="relative mb-4">
+            <label for="offerPrice">{{'Shopping.OfferPriceLabel' | translate}}</label>
+            <input name="offerPrice" id="offerPrice" type="number" [(ngModel)]="offerPrice" [placeholder]="'Shopping.OfferPriceLabel' | translate" class="form-input text-white bg-transparent transition-all" />
+        </div>
+
+        <div class="relative mb-4">
+            <label for="notes">{{'Shopping.NotesLabel' | translate}}</label>
+            <textarea [(ngModel)]="notes"  name="notes" id="notes" [placeholder]="'Shopping.NotesPlaceholder' | translate" class="form-input text-white bg-transparent transition-all"></textarea>
+        </div>
+        <div class="flex justify-center items-center gap-2 w-full pb-3">
+            <button type="button" (click)="sendOfferPrice()" class="btn btn-primary">إرسال الطلب</button>
+            <button type="button" (click)="closeModal()" class="btn btn-outline-danger">إلغاء</button>
+        </div>
+    </ng-template>
+</ngx-custom-modal>

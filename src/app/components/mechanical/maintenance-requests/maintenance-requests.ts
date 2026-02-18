@@ -1,30 +1,31 @@
+import { DatePipe, NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { EquipmentService } from '../../../service/equipment/equipment-service';
-import { ActivatedRoute } from '@angular/router';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTableModule } from '@bhplugin/ng-datatable';
-import { DatePipe, NgClass } from '@angular/common';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { IconInfoCircleComponent } from '../../../shared/icon/icon-info-circle';
+import { IconChecksComponent } from '../../../shared/icon/icon-checks';
+import { EquipmentService } from '../../../service/equipment/equipment-service';
 import { ToastrService } from 'ngx-toastr';
-import { IconChecksComponent } from "../../../shared/icon/icon-checks";
 
 @Component({
-  selector: 'app-respond-maintenance-requests',
+  selector: 'app-maintenance-requests',
   imports: [DataTableModule, FormsModule, TranslatePipe, NgClass, DatePipe, IconInfoCircleComponent, ReactiveFormsModule, IconChecksComponent],
-  templateUrl: './respond-maintenance-requests.html',
-  styleUrl: './respond-maintenance-requests.css',
+  templateUrl: './maintenance-requests.html',
+  styleUrl: './maintenance-requests.css',
 })
-export class RespondMaintenanceRequests {
+export class MaintenanceRequests {
     private readonly _EquipmentService = inject(EquipmentService)
     private readonly _TranslateService = inject(TranslateService)
     private readonly _ToastrService = inject(ToastrService)
     private readonly _FormBuilder = inject(FormBuilder)
 
+    role:string | null = localStorage.getItem('role')
     allRespond:any[] = []
     translatedColsRequest: any[] = [];
     colsRequests = [
         { field: 'requesterName', title: 'Equipments.Details_Equipment.RequesterNameLabel' },
+        { field: 'mechanicalName', title: 'Equipments.Details_Equipment.MechanicalNameLabel' },
         { field: 'createdDate', title: 'Equipments.Details_Equipment.CreatedDateLabel' },
         { field: 'requestType', title: 'Equipments.Details_Equipment.RequestTypeLabel' },
         { field: 'equipmentModel', title: 'Equipments.Details_Equipment.EquipmentModelLabel' },
@@ -50,11 +51,20 @@ export class RespondMaintenanceRequests {
     }
 
     getAllRespond():void{
-        this._EquipmentService.getReceivedByOwner().subscribe({
-            next:(res)=>{
-                this.allRespond = res.data
-            }
-        })
+        if(this.role == 'Equipment owner'){
+            this._EquipmentService.GetFleetMaintenanceMonitoring().subscribe({
+                next:(res)=>{
+                    this.allRespond = res.data
+                }
+            })
+        } else if(this.role == 'Mechanical') {
+            this._EquipmentService.GetMyMaintenanceRequests().subscribe({
+                next:(res)=>{
+                    this.allRespond = res.data
+                }
+            })
+        }
+
     }
 
     requestId:string | null = null
@@ -81,5 +91,4 @@ export class RespondMaintenanceRequests {
             }
         })
     }
-
 }

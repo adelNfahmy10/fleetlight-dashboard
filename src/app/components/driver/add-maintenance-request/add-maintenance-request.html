@@ -1,4 +1,4 @@
-<section class="add-equipment">
+<section class="maintenance-request">
     <div class="panel p-6">
         <div class="head-section">
             <h2 class="font-bold">{{'Equipments.Maintenance_Request.titleRequests' | translate }}</h2>
@@ -6,13 +6,27 @@
 
         <form class="grid grid-cols-12 gap-3" [formGroup]="maintenanceRequestForm" >
             <!-- Switch Equipment Type -->
-            <div class="equipment-Switch col-span-12">
+            <div class="equipment-Switch md:col-span-6 col-span-12">
                 <label class="text-[16px]">{{ 'Equipments.Add_Equipments.EquipmentTypeLabel' | translate }}</label>
                 <ng-select
                     [items]="allEquipments"
                     formControlName="equipmentId"
                     bindLabel="model"
                     bindValue="id"
+                    [clearable]="false"
+                    [searchable]="true"
+                    [placeholder]="'Equipments.Add_Equipments.EquipmentTypePlaceholder' | translate"
+                    class="custom-multiselect"
+                >
+                </ng-select>
+            </div>
+
+            <!-- Switch Priority -->
+            <div class="equipment-Switch md:col-span-6 col-span-12">
+                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.EquipmentTypeLabel' | translate }}</label>
+                <ng-select
+                    [items]="priority"
+                    formControlName="priority"
                     [clearable]="false"
                     [searchable]="true"
                     [placeholder]="'Equipments.Add_Equipments.EquipmentTypePlaceholder' | translate"
@@ -33,8 +47,6 @@
                     {{ 'Equipments.Maintenance_Request.RequestBtn' | translate }}
                 </button>
             </div>
-
-
         </form>
 
 
