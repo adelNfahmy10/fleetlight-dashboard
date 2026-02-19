@@ -77,18 +77,33 @@
 <ngx-custom-modal #modal [centered]="true">
     <ng-template #modalBody>
         <div class="text-white text-[22px] mb-4">{{'Shopping.OfferPriceTitle' | translate}}</div>
-        <div class="relative mb-4">
-            <label for="offerPrice">{{'Shopping.OfferPriceLabel' | translate}}</label>
-            <input name="offerPrice" id="offerPrice" type="number" [(ngModel)]="offerPrice" [placeholder]="'Shopping.OfferPriceLabel' | translate" class="form-input text-white bg-transparent transition-all" />
-        </div>
+        <form [formGroup]="requestOfferForm">
+            <!-- Offer Price -->
+            <div class="relative mb-4">
+                <label for="offerPrice">{{'Shopping.OfferPriceLabel' | translate}}</label>
+                <input name="offerPrice" id="offerPrice" type="number" formControlName="requestedPrice" [placeholder]="'Shopping.OfferPriceLabel' | translate" class="form-input text-white bg-transparent transition-all" />
+            </div>
 
-        <div class="relative mb-4">
-            <label for="notes">{{'Shopping.NotesLabel' | translate}}</label>
-            <textarea [(ngModel)]="notes"  name="notes" id="notes" [placeholder]="'Shopping.NotesPlaceholder' | translate" class="form-input text-white bg-transparent transition-all"></textarea>
-        </div>
-        <div class="flex justify-center items-center gap-2 w-full pb-3">
-            <button type="button" (click)="sendOfferPrice()" class="btn btn-primary">إرسال الطلب</button>
-            <button type="button" (click)="closeModal()" class="btn btn-outline-danger">إلغاء</button>
-        </div>
+            <!-- Quantity -->
+            <div class="relative mb-4">
+                <label for="quantity">{{'Shopping.QuantityLabel' | translate}}</label>
+                <input name="quantity" id="quantity" type="number" formControlName="quantity" [placeholder]="'Shopping.QuantityPlaceholder' | translate" class="form-input text-white bg-transparent transition-all" />
+            </div>
+
+            <!-- Notes -->
+            <div class="relative mb-4">
+                <label for="notes">{{'Shopping.NotesLabel' | translate}}</label>
+                <textarea name="notes" id="notes" formControlName="requesterNote" [placeholder]="'Shopping.NotesPlaceholder' | translate" class="form-input text-white bg-transparent transition-all"></textarea>
+            </div>
+
+            <div class="flex justify-center items-center gap-2 w-full pb-3">
+                <button type="button" (click)="submitRequestOffer()" class="btn btn-primary">إرسال الطلب</button>
+                <button type="button" (click)="closeModal()" class="btn btn-outline-danger">إلغاء</button>
+            </div>
+        </form>
+
+
+
+
     </ng-template>
 </ngx-custom-modal>

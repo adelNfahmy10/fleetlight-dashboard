@@ -25,6 +25,10 @@ export class ShoppingService {
         return this._HttpClient.post(`${environment.baseUrl}SparePartOffer/RespondToOffer`, body)
     }
 
+    MakeDecision(body:any):Observable<any>{
+        return this._HttpClient.post(`${environment.baseUrl}SparePartOffer/MakeDecision`, body)
+    }
+
     CreateOrder(body:any):Observable<any>{
         return this._HttpClient.post(`${environment.baseUrl}Order/CreateOrder`, body)
     }

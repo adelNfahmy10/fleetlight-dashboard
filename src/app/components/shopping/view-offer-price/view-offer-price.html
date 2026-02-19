@@ -27,15 +27,15 @@
                     </div>
                 </ng-template>
 
-                <ng-template slot="systemPrice" let-value="data">
+                <ng-template slot="requestedPrice" let-value="data">
                     <div class="flex items-center gap-2">
-                        <p>{{ value.systemPrice | number }} {{'View_OFFER_PRICE.Currency' | translate}}</p>
+                        <p>{{ value.requestedPrice || '-' }} {{value.requestedPrice ? ('View_OFFER_PRICE.Currency'  | translate ): ''}}</p>
                     </div>
                 </ng-template>
 
                 <ng-template slot="finalPrice" let-value="data">
                     <div class="flex items-center gap-2">
-                        <p>{{ value.finalPrice ? value.finalPrice : '-' }} {{value.finalPrice ? ('View_OFFER_PRICE.Currency'  | translate ): ''}}</p>
+                        <p>{{ value.finalPrice || '-' }} {{value.finalPrice ? ('View_OFFER_PRICE.Currency'  | translate ): ''}}</p>
                     </div>
                 </ng-template>
 
@@ -46,7 +46,8 @@
                             <span
                                 class="w-20 py-1 text-[12px] rounded-md font-semibold text-center inline-block"
                                 [ngClass]="{
-                                    'text-green-600 bg-green-200': value.status === 'Responded',
+                                    'text-green-600 bg-green-200': value.status === 'Accepted',
+                                    'text-blue-600 bg-blue-200': value.status === 'Responded',
                                     'text-yellow-600 bg-yellow-200': value.status === 'Pending',
                                     'text-red-600 bg-red-200': value.status === 'Rejected'
                                 }"
@@ -57,26 +58,27 @@
                     }
 
                     @if(role == 'Supplier' || value.status != 'Pending'){
-                        @if(!value.finalPrice){
+                        @if(value.status == 'Pending'){
                             <div class="flex justify-center items-center gap-2">
-                                <button type="button" class="text-secondary" ngxTippy="Success">
+                                <button type="button" class="text-secondary" ngxTippy="Success" (click)="MakeDecision(true, value.id)">
                                     <icon-checks class="h-6 w-6 text-success font-bold" />
                                 </button>
 
-                                <button type="button" class="text-danger" ngxTippy="Reject" >
-                                <icon-x-circle class="h-6 w-6" />
+                                <button type="button" class="text-danger" ngxTippy="Reject" (click)="MakeDecision(false, value.id)">
+                                    <icon-x-circle class="h-6 w-6" />
                                 </button>
 
                                 <button type="button" class="text-secondary" ngxTippy="Details" (click)="getRequestData(value.id)">
                                     <icon-info-circle class="h-6 w-6" />
                                 </button>
                             </div>
-                        } @else if(value.finalPrice && role == 'Supplier' ){
+                        } @else if(value.status !== 'Pending' && role == 'Supplier'){
                             <div class="flex items-center justify-center gap-1">
                                 <span
                                     class="w-20 py-1 text-[12px] rounded-md font-semibold text-center inline-block"
                                     [ngClass]="{
-                                        'text-green-600 bg-green-200': value.status === 'Responded',
+                                        'text-green-600 bg-green-200': value.status === 'Accepted',
+                                        'text-blue-600 bg-blue-200': value.status === 'Responded',
                                         'text-yellow-600 bg-yellow-200': value.status === 'Pending',
                                         'text-red-600 bg-red-200': value.status === 'Rejected'
                                     }"
@@ -106,7 +108,7 @@
                     <!-- Notes -->
                     <div class="offerPrice-note col-span-12">
                         <label class="text-[16px]">{{ 'View_OFFER_PRICE.OfferPriceNoteLabel' | translate }}</label>
-                        <textarea formControlName="notes" class="form-input" name="OfferPriceNotePlaceholder" id="OfferPriceNotePlaceholder" [placeholder]="'View_OFFER_PRICE.OfferPriceNotePlaceholder' | translate" ></textarea>
+                        <textarea formControlName="supplierNote" class="form-input" name="OfferPriceNotePlaceholder" id="OfferPriceNotePlaceholder" [placeholder]="'View_OFFER_PRICE.OfferPriceNotePlaceholder' | translate" ></textarea>
                     </div>
 
                     <!-- Buttons Equimpent -->

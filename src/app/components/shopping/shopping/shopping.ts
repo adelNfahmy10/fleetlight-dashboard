@@ -3,13 +3,13 @@ import { SupplierService } from '../../../service/supplier/supplier-service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { NgxCustomModalComponent } from "ngx-custom-modal";
-import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShoppingService } from '../../../service/shopping/shopping-service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-shopping',
-  imports: [TranslatePipe, CommonModule, NgxCustomModalComponent, FormsModule],
+  imports: [TranslatePipe, CommonModule, NgxCustomModalComponent, FormsModule, ReactiveFormsModule],
   templateUrl: './shopping.html',
   styleUrl: './shopping.css',
 })
@@ -20,8 +20,6 @@ export class Shopping implements OnInit{
     private readonly _ToastrService = inject(ToastrService)
 
     allSpareParts:any[] = []
-    offerPrice:string | number = 0
-    notes:string = ''
     qty = 1;
 
     @ViewChild('modal') modal!: NgxCustomModalComponent;
@@ -44,11 +42,17 @@ export class Shopping implements OnInit{
         this.modal.open();
     }
 
-    sendOfferPrice():void{
-        let data = {
-            sparePartId: this.sparePartId,
-            notes: this.offerPrice + ' ريال'
-        }
+    requestOfferForm:FormGroup = this._FormBuilder.group({
+        sparePartId:[null],
+        requestedPrice:[null],
+        requesterNote:[null],
+        quantity:[null],
+    })
+
+    submitRequestOffer():void{
+        let data = this.requestOfferForm.value
+        data.sparePartId = this.sparePartId
+
         this._ShoppingService.CreateOfferPrice(data).subscribe({
             next:(res)=>{
                 this._ToastrService.success(res.msg)
@@ -59,11 +63,8 @@ export class Shopping implements OnInit{
 
     closeModal() {
         this.modal.close();
-        this.offerPrice = 0
-        this.sparePartId = ''
+        this.requestOfferForm.reset()
     }
-
-
 
     increaseQty() {
         this.qty++;

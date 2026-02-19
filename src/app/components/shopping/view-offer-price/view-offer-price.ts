@@ -35,7 +35,9 @@ export class ViewOfferPrice {
         { field: 'supplierName', title: 'View_OFFER_PRICE.SupplierName' },
         { field: 'createdDate', title: 'View_OFFER_PRICE.RequestDate' },
         { field: 'sparePartName', title: 'View_OFFER_PRICE.SparePartName' },
-        { field: 'notes', title: 'View_OFFER_PRICE.RequesterPrice' },
+        { field: 'requestedPrice', title: 'View_OFFER_PRICE.RequesterPrice' },
+        { field: 'requesterNote', title: 'View_OFFER_PRICE.RequesterNote' },
+        { field: 'supplierNote', title: 'View_OFFER_PRICE.SupplierNote' },
         { field: 'finalPrice', title: 'View_OFFER_PRICE.FinalPrice' },
         { field: 'status', title: 'View_OFFER_PRICE.StatusRequest' },
     ];
@@ -83,7 +85,7 @@ export class ViewOfferPrice {
         offerId : [null],
         finalPrice: [null],
         setAsSystemPrice: [true],
-        notes: [null],
+        supplierNote: [null],
     })
 
     submitRespond():void{
@@ -98,6 +100,20 @@ export class ViewOfferPrice {
             next:(res)=>{
                 this.respondForm.reset()
                 this.offerId = null
+                this._ToastrService.success(res.msg)
+                this.getAllOfferPrice()
+            }
+        })
+    }
+
+    MakeDecision(action:boolean, id:any):void{
+        let data = {
+            offerId: id,
+            isAccepted: action
+        }
+
+        this._ShoppingService.MakeDecision(data).subscribe({
+            next:(res)=>{
                 this._ToastrService.success(res.msg)
                 this.getAllOfferPrice()
             }

@@ -239,6 +239,8 @@
         "OfferPriceTitle" : "إرسال عرض سعر للمنتج",
         "OfferPriceLabel" : "السعر الطلوب",
         "OfferPricePlaceholder" : "أدخل السعر المطلوب",
+        "QuantityLabel" : "الكمية",
+        "QuantityPlaceholder" : "أدخل الكمية",
         "NotesLabel" : "التفاصيل",
         "NotesPlaceholder" : "أدخل التفاصيل"
     },
@@ -246,17 +248,19 @@
         "title" : "طلبات عرض السعر",
         "SearchPlaceholder" : "البحث...",
 
+        "SupplierName": "المورد",
         "RequestDate": "تاريخ الطلب",
         "SparePartName": "إسم المنتج",
         "RequesterName": "إسم صاحب الطلب",
-        "SupplierName": "المورد",
-        "SystemPrice": "السعر الأصلي",
         "RequesterPrice": "السعر المطلوب",
+        "RequesterNote": "تفاصيل الطلب",
+
+        "SupplierNote": "تفاصيل الرد",
         "FinalPrice": "السعر النهائي",
+
         "StatusRequest": "حالة الطلب",
         "ShowPaginationInfo": "عرض السجلات",
         "Currency": "ريال",
-
 
 
         "FinalPricePlaceholder": "أدخل السعر النهائي",
