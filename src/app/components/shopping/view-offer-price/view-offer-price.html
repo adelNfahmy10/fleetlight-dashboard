@@ -41,7 +41,7 @@
 
 
                 <ng-template slot="status" let-value="data">
-                    @if(role == 'Equipment owner'){
+                    @if(role == 'Equipment owner' || role == 'Admin'){
                         <div class="flex items-center justify-center gap-1">
                             <span
                                 class="w-20 py-1 text-[12px] rounded-md font-semibold text-center inline-block"

@@ -168,7 +168,7 @@
                             </li> -->
 
                             <!-- Equipments Section -->
-                            @if(role == 'Admin'){
+                            @if(role == 'Equipment owner' || role == 'Admin'){
                                 <!-- Add and View Eqipments -->
                                 <li class="accordion menu nav-item">
                                     <button
@@ -297,7 +297,7 @@
                             }
 
 
-                            @if(role == 'Supplier' || role == 'Admin'){
+                            @if(role == 'Supplier' || role == 'Equipment owner' || role == 'Admin'){
                                 <!-- View Offer Price -->
                                 <li class="nav-item">
                                     <a routerLink="/offer-price" class="group" routerLinkActive="active" (click)="toggleMobileMenu()">

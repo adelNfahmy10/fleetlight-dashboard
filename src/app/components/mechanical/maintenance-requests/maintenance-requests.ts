@@ -51,7 +51,7 @@ export class MaintenanceRequests {
     }
 
     getAllRespond():void{
-        if(this.role == 'Equipment owner'){
+        if(this.role == 'Equipment owner' || this.role == 'Admin'){
             this._EquipmentService.GetFleetMaintenanceMonitoring().subscribe({
                 next:(res)=>{
                     this.allRespond = res.data
