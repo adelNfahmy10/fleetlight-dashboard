@@ -117,23 +117,19 @@ export class SidebarComponent {
     }
 
     logout():void{
+        localStorage.removeItem('token')
+        localStorage.removeItem('refreshToken')
+        localStorage.removeItem('userId')
+        localStorage.removeItem('fullName')
+        localStorage.removeItem('role')
+        this.router.navigate(['/auth/boxed-signin'])
+
         this._AuthService.logout().subscribe({
             next:(res)=>{
                 this._ToastrService.success(res.msg)
-                localStorage.removeItem('token')
-                localStorage.removeItem('refreshToken')
-                localStorage.removeItem('userId')
-                localStorage.removeItem('fullName')
-                localStorage.removeItem('role')
-                this.router.navigate(['/auth/boxed-signin'])
             },
             error:(err)=>{
                 this._ToastrService.success(err.error.msg)
-                localStorage.removeItem('token')
-                localStorage.removeItem('refreshToken')
-                localStorage.removeItem('userId')
-                localStorage.removeItem('fullName')
-                localStorage.removeItem('role')
             }
         })
     }
