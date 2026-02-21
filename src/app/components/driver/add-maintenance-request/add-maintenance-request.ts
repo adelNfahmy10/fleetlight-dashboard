@@ -19,6 +19,7 @@ private readonly _FormBuilder = inject(FormBuilder)
     private readonly _ToastrService = inject(ToastrService)
     private readonly _TranslateService = inject(TranslateService)
 
+    role:string | null = localStorage.getItem('role')
     allEquipments:any[] = []
     allRequests:any[] = []
     translatedCols: any[] = [];
@@ -65,12 +66,19 @@ private readonly _FormBuilder = inject(FormBuilder)
     }
 
     getAllRequests():void{
-        this._EquipmentService.GetMyMaintenanceRequests().subscribe({
-            next:(res)=>{
-                this.allRequests = res.data
-                console.log(this.allRequests);
-            }
-        })
+        if(this.role == 'Mechanical'){
+            this._EquipmentService.GetMyMaintenanceRequests().subscribe({
+                next:(res)=>{
+                    this.allRequests = res.data
+                }
+            })
+        } else if(this.role == 'Driver'){
+            this._EquipmentService.GetDriverMaintenanceRequests().subscribe({
+                next:(res)=>{
+                    this.allRequests = res.data
+                }
+            })
+        }
     }
 
     maintenanceRequestForm:FormGroup = this._FormBuilder.group({

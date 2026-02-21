@@ -53,6 +53,11 @@ export class EquipmentService {
         return this._HttpClient.get(`${environment.baseUrl}EquipmentMaintenanceRequest/GetFleetMaintenanceMonitoring`)
     }
 
+    // Driver Owner
+    GetDriverMaintenanceRequests():Observable<any>{
+        return this._HttpClient.get(`${environment.baseUrl}EquipmentMaintenanceRequest/GetDriverMaintenanceRequests`)
+    }
+
     CreateMaintenanceRequest(data:any):Observable<any>{
         return this._HttpClient.post(`${environment.baseUrl}EquipmentMaintenanceRequest/Create`, data)
     }

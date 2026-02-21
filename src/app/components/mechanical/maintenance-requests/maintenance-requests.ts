@@ -63,8 +63,15 @@ export class MaintenanceRequests {
                     this.allRespond = res.data
                 }
             })
-        }
+        } else if(this.role == 'Driver') {
+            this._EquipmentService.GetDriverMaintenanceRequests().subscribe({
+                next:(res)=>{
+                    this.allRespond = res.data
+                    console.log(this.allRespond);
 
+                }
+            })
+        }
     }
 
     requestId:string | null = null
