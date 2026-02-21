@@ -23,13 +23,13 @@
 
             <!-- Switch Priority -->
             <div class="equipment-Switch md:col-span-6 col-span-12">
-                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.EquipmentTypeLabel' | translate }}</label>
+                <label class="text-[16px]">{{ 'Equipments.Add_Equipments.PriorityLabel' | translate }}</label>
                 <ng-select
                     [items]="priority"
                     formControlName="priority"
                     [clearable]="false"
                     [searchable]="true"
-                    [placeholder]="'Equipments.Add_Equipments.EquipmentTypePlaceholder' | translate"
+                    [placeholder]="'Equipments.Add_Equipments.PriorityPlaceholder' | translate"
                     class="custom-multiselect"
                 >
                 </ng-select>

@@ -138,6 +138,8 @@
             "MechanicalNameLabel" : "إسم الميكانيكي",
             "CreatedDateLabel" : "تاريخ الطلب",
             "RequestTypeLabel" : "نوع الآلة (معدة - شاحنة)",
+            "PriorityLabel" : "حالة الطلب",
+            "PriorityPlaceholder" : "أدخل حالة الطلب",
             "EquipmentModelLabel" : "طراز الآلة",
             "MaintenanceDescriptionLabel" : "سبب الطلب",
             "StatusLabel" : "حالة الطلب",
