@@ -1,4 +1,4 @@
-﻿import { Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -123,14 +123,13 @@ export class SidebarComponent {
         localStorage.removeItem('fullName')
         localStorage.removeItem('role')
         this.router.navigate(['/auth/boxed-signin'])
-
-        this._AuthService.logout().subscribe({
-            next:(res)=>{
-                this._ToastrService.success(res.msg)
-            },
-            error:(err)=>{
-                this._ToastrService.success(err.error.msg)
-            }
-        })
+        // this._AuthService.logout().subscribe({
+        //     next:(res)=>{
+        //         this._ToastrService.success(res.msg)
+        //     },
+        //     error:(err)=>{
+        //         this._ToastrService.success(err.error.msg)
+        //     }
+        // })
     }
 }
